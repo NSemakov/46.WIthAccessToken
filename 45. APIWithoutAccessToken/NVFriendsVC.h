@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NVFriendsVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@property (strong,nonatomic) NSMutableArray* arrayOfFriends;
 
 @end
 
