@@ -8,7 +8,7 @@
 
 #import "NVSubscriptionVC.h"
 #import "NVServerManager.h"
-#import "NVFriend.h"
+#import "NVUser.h"
 #import "NVSubcription.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVSubscriptionVC ()

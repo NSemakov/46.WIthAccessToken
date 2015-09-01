@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class NVFriend;
+@class NVUser;
 @interface NVServerManager : NSObject
 +(NVServerManager*) sharedManager;
 -(void) getFriendsFromServerCount:(NSInteger) count
@@ -15,7 +15,7 @@
                         onSuccess:(void(^)(NSArray* friends)) onSuccess
                         onFailure:(void(^)(NSString* error)) onFailure;
 -(void) getDetailOfFriendFromServer:(NSString*) userIds
-                               onSuccess:(void(^)(NVFriend* person)) onSuccess
+                               onSuccess:(void(^)(NVUser* person)) onSuccess
                                onFailure:(void(^)(NSString* error)) onFailure;
 -(void) getFollowersFromServer:(NSInteger) userIds Count:(NSInteger) count
                     withOffset:(NSInteger) offset
@@ -25,4 +25,9 @@
                         withOffset:(NSInteger) offset
                          onSuccess:(void(^)(NSArray* subscriptions)) onSuccess
                          onFailure:(void(^)(NSString* error)) onFailure;
+-(void) getWallPostsOfFriendFromServer:(NSInteger) owner_id
+                                 Count:(NSInteger) count
+                            withOffset:(NSInteger) offset
+                             onSuccess:(void(^)(NSArray* wallPosts)) onSuccess
+                             onFailure:(void(^)(NSString* error)) onFailure;
 @end

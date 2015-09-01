@@ -7,7 +7,7 @@
 //
 
 #import "NVFriendsVC.h"
-#import "NVFriend.h"
+#import "NVUser.h"
 #import "NVServerManager.h"
 #import "NVDetailInfoVC.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
@@ -60,10 +60,10 @@ static const NSInteger numberOfFriendsToGet=20;
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    NVFriend* friend=[self.arrayOfFriends objectAtIndex:indexPath.row];
+    NVUser* friend=[self.arrayOfFriends objectAtIndex:indexPath.row];
     cell.textLabel.text=[NSString stringWithFormat:@"%@ %@",friend.firstName, friend.lastName];
     NSURLRequest* request1=[NSURLRequest requestWithURL:friend.photo50];
-    NSLog(@"photo %@",[friend.photo50 path]);
+    
     __weak UITableViewCell* weakCell=cell;
     [cell.imageView setImageWithURLRequest:request1 placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {

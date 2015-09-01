@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class NVFriend;
+@class NVUser;
 @interface NVDetailInfoVC : UITableViewController
-@property (strong,nonatomic) NVFriend* person;
+@property (strong,nonatomic) NVUser* person;
 @property (strong,nonatomic) NSString* userIds;
 @end

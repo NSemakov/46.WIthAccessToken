@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NVFriend : NSObject
+@interface NVUser : NSObject
 @property (strong,nonatomic) NSString* firstName;
 @property (strong,nonatomic) NSString* lastName;
 @property (strong,nonatomic) NSString* userId;

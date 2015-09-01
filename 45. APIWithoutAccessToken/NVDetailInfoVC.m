@@ -8,16 +8,17 @@
 
 #import "NVDetailInfoVC.h"
 #import "NVFriendsVC.h"
-#import "NVFriend.h"
+#import "NVUser.h"
 #import "NVServerManager.h"
 #import "NVPhotoCell.h"
 #import "NVFollowersVC.h"
 #import "NVSubscriptionVC.h"
+#import "NVWallVC.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVDetailInfoVC ()
 
 @end
-static const NSInteger numberOfFriendsToGet=20;
+
 
 @implementation NVDetailInfoVC
 
@@ -38,7 +39,7 @@ static const NSInteger numberOfFriendsToGet=20;
 
 }
 - (void) refreshTable{
-    [[NVServerManager sharedManager]getDetailOfFriendFromServer:self.userIds onSuccess:^(NVFriend *person) {
+    [[NVServerManager sharedManager]getDetailOfFriendFromServer:self.userIds onSuccess:^(NVUser *person) {
          //NSMutableArray* arrayOfIndexPaths=[NSMutableArray array];
         self.person=person;
         [self.tableView reloadData];
@@ -146,6 +147,8 @@ static const NSInteger numberOfFriendsToGet=20;
         [self performSegueWithIdentifier:@"segueFollowers" sender:nil];
     } else if (indexPath.section==0 && indexPath.row==2) {
         [self performSegueWithIdentifier:@"segueSubscription" sender:nil];
+    } else if (indexPath.section==0 && indexPath.row==3) {
+        [self performSegueWithIdentifier:@"segueShowWall" sender:nil];
     }
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -155,6 +158,10 @@ static const NSInteger numberOfFriendsToGet=20;
     } else if ([segue.identifier isEqualToString:@"segueSubscription"]) {
         NVSubscriptionVC* vc=segue.destinationViewController;
         vc.person=self.person;
+    } else if ([segue.identifier isEqualToString:@"segueShowWall"]) {
+        NVWallVC* vc=segue.destinationViewController;
+        vc.person=self.person;
+        
     }
     
     

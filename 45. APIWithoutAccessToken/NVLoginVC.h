@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class NVFriend;
-typedef void(^CompletionBlock)(NVFriend* friend);
+@class NVUser;
+typedef void(^CompletionBlock)(NVUser* friend);
 
 @interface NVLoginVC : UIViewController
 @property (strong,nonatomic) UIWebView* webView;

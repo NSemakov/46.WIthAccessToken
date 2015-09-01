@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A1178F7D09DF8AB8F428514 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD483B21CB1873FE9DCD784C /* libPods.a */; };
-		847AD3711B906E1300581426 /* NVFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3701B906E1300581426 /* NVFriend.m */; };
+		847AD3711B906E1300581426 /* NVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3701B906E1300581426 /* NVUser.m */; };
 		847AD3741B906E8700581426 /* NVLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3731B906E8700581426 /* NVLoginVC.m */; };
 		847AD3771B90753300581426 /* NVServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3761B90753300581426 /* NVServerManager.m */; };
 		847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3791B90A9DF00581426 /* NVPhotoCell.m */; };
@@ -16,6 +16,7 @@
 		84B365581B91D2EE003E33C2 /* NVFollowersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B365571B91D2EE003E33C2 /* NVFollowersVC.m */; };
 		84B3655B1B91E5BA003E33C2 /* NVSubcription.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655A1B91E5BA003E33C2 /* NVSubcription.m */; };
 		84B3655E1B91E773003E33C2 /* NVSubscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */; };
+		84E36C8F1B920F7400AC1F56 /* NVWallPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E36C8E1B920F7400AC1F56 /* NVWallPost.m */; };
 		84EB349F1B9060F800C7E0AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB349E1B9060F800C7E0AC /* main.m */; };
 		84EB34A21B9060F800C7E0AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34A11B9060F800C7E0AC /* AppDelegate.m */; };
 		84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34A41B9060F800C7E0AC /* NVFriendsVC.m */; };
@@ -23,6 +24,12 @@
 		84EB34AA1B9060F800C7E0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EB34A91B9060F800C7E0AC /* Images.xcassets */; };
 		84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB34AB1B9060F800C7E0AC /* LaunchScreen.xib */; };
 		84EB34B91B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */; };
+		84F066A21B95D1320037EF83 /* NVWallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A11B95D1320037EF83 /* NVWallVC.m */; };
+		84F066A51B95D7500037EF83 /* NVLikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A41B95D7500037EF83 /* NVLikes.m */; };
+		84F066A81B95E6010037EF83 /* NVWallHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A71B95E6010037EF83 /* NVWallHeaderCell.m */; };
+		84F066AB1B960B630037EF83 /* NVAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066AA1B960B630037EF83 /* NVAttachmentCell.m */; };
+		84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066AD1B960D4E0037EF83 /* NVPhoto.m */; };
+		84F066B11B960F0A0037EF83 /* NVAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066B01B960F0A0037EF83 /* NVAudio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +44,8 @@
 
 /* Begin PBXFileReference section */
 		2B74597E3F1866E36C551DFF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		847AD36F1B906E1300581426 /* NVFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFriend.h; sourceTree = "<group>"; };
-		847AD3701B906E1300581426 /* NVFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVFriend.m; sourceTree = "<group>"; };
+		847AD36F1B906E1300581426 /* NVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVUser.h; sourceTree = "<group>"; };
+		847AD3701B906E1300581426 /* NVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVUser.m; sourceTree = "<group>"; };
 		847AD3721B906E8700581426 /* NVLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLoginVC.h; sourceTree = "<group>"; };
 		847AD3731B906E8700581426 /* NVLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLoginVC.m; sourceTree = "<group>"; };
 		847AD3751B90753300581426 /* NVServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVServerManager.h; sourceTree = "<group>"; };
@@ -53,6 +60,8 @@
 		84B3655A1B91E5BA003E33C2 /* NVSubcription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSubcription.m; sourceTree = "<group>"; };
 		84B3655C1B91E773003E33C2 /* NVSubscriptionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSubscriptionVC.h; sourceTree = "<group>"; };
 		84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSubscriptionVC.m; sourceTree = "<group>"; };
+		84E36C8D1B920F7400AC1F56 /* NVWallPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallPost.h; sourceTree = "<group>"; };
+		84E36C8E1B920F7400AC1F56 /* NVWallPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVWallPost.m; sourceTree = "<group>"; };
 		84EB34991B9060F700C7E0AC /* 45. APIWithoutAccessToken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "45. APIWithoutAccessToken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB349D1B9060F800C7E0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EB349E1B9060F800C7E0AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,6 +75,18 @@
 		84EB34B21B9060F800C7E0AC /* 45. APIWithoutAccessTokenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "45. APIWithoutAccessTokenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB34B71B9060F800C7E0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5__APIWithoutAccessTokenTests.m; sourceTree = "<group>"; };
+		84F066A01B95D1320037EF83 /* NVWallVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallVC.h; sourceTree = "<group>"; };
+		84F066A11B95D1320037EF83 /* NVWallVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVWallVC.m; sourceTree = "<group>"; };
+		84F066A31B95D7500037EF83 /* NVLikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLikes.h; sourceTree = "<group>"; };
+		84F066A41B95D7500037EF83 /* NVLikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLikes.m; sourceTree = "<group>"; };
+		84F066A61B95E6010037EF83 /* NVWallHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallHeaderCell.h; sourceTree = "<group>"; };
+		84F066A71B95E6010037EF83 /* NVWallHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVWallHeaderCell.m; sourceTree = "<group>"; };
+		84F066A91B960B630037EF83 /* NVAttachmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVAttachmentCell.h; sourceTree = "<group>"; };
+		84F066AA1B960B630037EF83 /* NVAttachmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAttachmentCell.m; sourceTree = "<group>"; };
+		84F066AC1B960D4E0037EF83 /* NVPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVPhoto.h; sourceTree = "<group>"; };
+		84F066AD1B960D4E0037EF83 /* NVPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhoto.m; sourceTree = "<group>"; };
+		84F066AF1B960F0A0037EF83 /* NVAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVAudio.h; sourceTree = "<group>"; };
+		84F066B01B960F0A0037EF83 /* NVAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAudio.m; sourceTree = "<group>"; };
 		BD483B21CB1873FE9DCD784C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A363DDB7F508AC7EA97246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,8 +113,16 @@
 		84B3655F1B91E77C003E33C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				847AD36F1B906E1300581426 /* NVFriend.h */,
-				847AD3701B906E1300581426 /* NVFriend.m */,
+				84F066AC1B960D4E0037EF83 /* NVPhoto.h */,
+				84F066AD1B960D4E0037EF83 /* NVPhoto.m */,
+				84F066AF1B960F0A0037EF83 /* NVAudio.h */,
+				84F066B01B960F0A0037EF83 /* NVAudio.m */,
+				847AD36F1B906E1300581426 /* NVUser.h */,
+				847AD3701B906E1300581426 /* NVUser.m */,
+				84E36C8D1B920F7400AC1F56 /* NVWallPost.h */,
+				84E36C8E1B920F7400AC1F56 /* NVWallPost.m */,
+				84F066A31B95D7500037EF83 /* NVLikes.h */,
+				84F066A41B95D7500037EF83 /* NVLikes.m */,
 				84B365591B91E5B9003E33C2 /* NVSubcription.h */,
 				84B3655A1B91E5BA003E33C2 /* NVSubcription.m */,
 			);
@@ -111,8 +140,14 @@
 				847AD37C1B90AA3B00581426 /* NVDetailInfoVC.m */,
 				84B365561B91D2EE003E33C2 /* NVFollowersVC.h */,
 				84B365571B91D2EE003E33C2 /* NVFollowersVC.m */,
+				84F066A01B95D1320037EF83 /* NVWallVC.h */,
+				84F066A11B95D1320037EF83 /* NVWallVC.m */,
 				84B3655C1B91E773003E33C2 /* NVSubscriptionVC.h */,
 				84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */,
+				84F066A61B95E6010037EF83 /* NVWallHeaderCell.h */,
+				84F066A71B95E6010037EF83 /* NVWallHeaderCell.m */,
+				84F066A91B960B630037EF83 /* NVAttachmentCell.h */,
+				84F066AA1B960B630037EF83 /* NVAttachmentCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -336,15 +371,22 @@
 			files = (
 				84B365581B91D2EE003E33C2 /* NVFollowersVC.m in Sources */,
 				847AD3741B906E8700581426 /* NVLoginVC.m in Sources */,
+				84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */,
 				84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */,
 				847AD3771B90753300581426 /* NVServerManager.m in Sources */,
 				847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */,
-				847AD3711B906E1300581426 /* NVFriend.m in Sources */,
+				84F066A81B95E6010037EF83 /* NVWallHeaderCell.m in Sources */,
+				84F066A21B95D1320037EF83 /* NVWallVC.m in Sources */,
+				847AD3711B906E1300581426 /* NVUser.m in Sources */,
 				84B3655B1B91E5BA003E33C2 /* NVSubcription.m in Sources */,
 				84B3655E1B91E773003E33C2 /* NVSubscriptionVC.m in Sources */,
+				84F066AB1B960B630037EF83 /* NVAttachmentCell.m in Sources */,
 				84EB34A21B9060F800C7E0AC /* AppDelegate.m in Sources */,
+				84F066A51B95D7500037EF83 /* NVLikes.m in Sources */,
+				84F066B11B960F0A0037EF83 /* NVAudio.m in Sources */,
 				84EB349F1B9060F800C7E0AC /* main.m in Sources */,
 				847AD37D1B90AA3B00581426 /* NVDetailInfoVC.m in Sources */,
+				84E36C8F1B920F7400AC1F56 /* NVWallPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class NVFriend;
+@class NVUser;
 @interface NVFollowersVC : UITableViewController
 @property (strong,nonatomic) NSMutableArray* arrayOfFollowers;
-@property (strong,nonatomic) NVFriend* person;
+@property (strong,nonatomic) NVUser* person;
 @end

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class NVSubcription;
-@class NVFriend;
+@class NVUser;
 @interface NVSubscriptionVC : UITableViewController
 @property (strong,nonatomic) NSMutableArray* arrayOfSubscription;
 @property (strong,nonatomic) NVSubcription* subscription;
-@property (strong,nonatomic) NVFriend* person;
+@property (strong,nonatomic) NVUser* person;
 @end

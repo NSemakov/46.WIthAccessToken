@@ -7,7 +7,7 @@
 //
 
 #import "NVLoginVC.h"
-#import "NVFriend.h"
+#import "NVUser.h"
 
 @interface NVLoginVC ()
 @property (copy,nonatomic) CompletionBlock completionBlock;

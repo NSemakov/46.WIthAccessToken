@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "NVFriend.h"
+#import "NVUser.h"
 
-@implementation NVFriend
+@implementation NVUser
 - (instancetype)initWithDictionary:(NSDictionary*) params 
 {
     self = [super init];
