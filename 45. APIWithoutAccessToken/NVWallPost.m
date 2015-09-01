@@ -25,19 +25,20 @@
         if ([params objectForKey:@"copy_history"]) {
             //self.repost=[[NVWallPost alloc]initWithDictionary:[params objectForKey:@"copy_history"]] ;
         }
-        self.from_id=[params objectForKey:@"from_id"];
-        self.owner_id=[params objectForKey:@"owner_id"];
+        self.from_id=(NSInteger)[params objectForKey:@"from_id"];
+        self.owner_id=(NSInteger)[params objectForKey:@"owner_id"];
 
         double dateOfPost1=[[params objectForKey:@"date"] doubleValue];
         NSDate* dateOfPost2=[NSDate dateWithTimeIntervalSince1970:dateOfPost1];
         NSDateFormatter* formatter=[[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"dd.MM.yyyy HH:mm"];
         self.dateOfPost=[NSString stringWithFormat:@"%@",[formatter stringFromDate:dateOfPost2]];
-        NSLog(@"date %@",self.dateOfPost);
+        
+        
         self.text=[params objectForKey:@"text"];
         self.likes=[[NVLikes alloc]initWithDictionary:[params objectForKey:@"likes"]];
-        self.repostsCount=[[params objectForKey:@"reposts"] objectForKey:@"count"];
-        self.commentsCount=[[params objectForKey:@"comments"] objectForKey:@"count"];
+        self.repostsCount=(NSInteger)[[params objectForKey:@"reposts"] objectForKey:@"count"];
+        self.commentsCount=(NSInteger)[[params objectForKey:@"comments"] objectForKey:@"count"];
         self.attachments=[params objectForKey:@"attachments"];
 
 
@@ -61,5 +62,6 @@
         [self.arrayOfData addObject:self.attachments];
         [self.arrayOfDataNames addObject:@"attachments"];
     }
+    
 }
 @end

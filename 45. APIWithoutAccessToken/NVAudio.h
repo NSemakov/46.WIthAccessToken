@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface NVAudio : NSObject
-@property (strong,nonatomic) NSNumber* idAudio;
-@property (strong,nonatomic) NSNumber* ownerId;
+@property (assign,nonatomic) NSInteger idAudio;
+@property (assign,nonatomic) NSInteger ownerId;
 @property (strong,nonatomic) NSString* artist;
 @property (strong,nonatomic) NSString* title;
-@property (strong,nonatomic) NSNumber* duration;
+@property (assign,nonatomic) NSInteger duration;
 @property (strong,nonatomic) NSURL* url;
 
 - (instancetype)initWithDictionary:(NSDictionary*) params;

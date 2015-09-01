@@ -15,16 +15,17 @@
 @property (strong,nonatomic) NVWallPost* repost;
 
 
-@property (strong,nonatomic) NSNumber* from_id;
-@property (strong,nonatomic) NSNumber* owner_id;
-@property (assign,nonatomic) NSString* dateOfPost;
+@property (assign,nonatomic) NSInteger from_id;
+@property (assign,nonatomic) NSInteger owner_id;
+@property (strong,nonatomic) NSString* dateOfPost;
 @property (strong,nonatomic) NSString* text;
+
 
 @property (strong,nonatomic) NSArray* attachments;
 @property (strong,nonatomic) NSDictionary* comments;
 @property (strong,nonatomic) NVLikes* likes;
-@property (strong,nonatomic) NSNumber* repostsCount;
-@property (strong,nonatomic) NSNumber* commentsCount;
+@property (assign,nonatomic) NSInteger repostsCount;
+@property (assign,nonatomic) NSInteger commentsCount;
 @property (strong,nonatomic) NSMutableArray* profiles;
 @property (strong,nonatomic) NSMutableArray* groups;
 

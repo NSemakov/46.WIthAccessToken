@@ -13,12 +13,12 @@
 {
     self = [super init];
     if (self) {
-        self.idAudio=[params objectForKey:@"idAudio"];
-        self.ownerId=[params objectForKey:@"ownerId"];
+        self.idAudio=(NSInteger)[params objectForKey:@"idAudio"];
+        self.ownerId=(NSInteger)[params objectForKey:@"ownerId"];
         self.artist=[params objectForKey:@"artist"];
         self.title=[params objectForKey:@"title"];
-        self.duration=[params objectForKey:@"duration"];
-        self.url=[params objectForKey:@"url"];
+        self.duration=(NSInteger)[params objectForKey:@"duration"];
+        self.url=[NSURL URLWithString:[params objectForKey:@"url"]];
 
     }
     return self;

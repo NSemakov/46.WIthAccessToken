@@ -11,6 +11,7 @@
 #import "NVWallHeaderCell.h"
 #import "NVWallPost.h"
 #import "NVAttachmentCell.h"
+#import "NVLikes.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
 
@@ -71,9 +72,8 @@ static const NSInteger numberOfWallPostsToGet=1;
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"author"]) {
         static NSString* identifier = @"headerCell";
         NVWallHeaderCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-        NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:indexPath.section];
-        //NSLog(@"wallPost %@ date %@", cell, wallPost.date);
-       // NSLog(@"date %@", wallPost.date);
+
+
         cell.labelDate.text=wallPost.dateOfPost;
         cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.author.firstName,wallPost.author.lastName];
         NSURL* url=wallPost.author.photo50;
@@ -94,11 +94,12 @@ static const NSInteger numberOfWallPostsToGet=1;
         static NSString* identifier2 = @"textCell";
         UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier2];
         cell.textLabel.text=wallPost.text;
-        NSLog(@"wallPost %@",wallPost.text);
+        //NSLog(@"wallPost %@",wallPost.text);
 
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]) {
-        
+        NVAttachmentCell* cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments];
+        return cell;
     }
 
     return nil;
