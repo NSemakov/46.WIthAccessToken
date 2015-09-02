@@ -14,5 +14,6 @@
 @property (strong,nonatomic) NSMutableArray* docs;
 
 @property (assign,nonatomic) CGRect lastFrame;
-- (instancetype)initWithAttachments:(NSArray*) att;
+@property (assign,nonatomic) CGRect parentTableViewRect;
+- (instancetype)initWithAttachments:(NSArray*) att andParentRect:(CGRect) parentRect;
 @end

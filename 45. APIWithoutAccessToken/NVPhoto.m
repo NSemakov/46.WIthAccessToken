@@ -20,7 +20,7 @@
         self.user_id=(NSInteger)[params objectForKey:@"user_id"];
         self.widthPhoto=[[params objectForKey:@"width"] unsignedIntegerValue];
         self.heightPhoto=[[params objectForKey:@"height"] unsignedIntegerValue];
-        NSLog(@"%ld %ld",self.widthPhoto,self.heightPhoto);
+        NSLog(@"%ld %ld",(unsigned long)self.widthPhoto,(unsigned long)self.heightPhoto);
         self.photo_75=[NSURL URLWithString:[params objectForKey:@"photo_75"]];
         self.photo_130=[NSURL URLWithString:[params objectForKey:@"photo_130"]];
         //NSLog(@"%@",self.photo_130);

@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RzD-wG-LZB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RzD-wG-LZB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -205,6 +205,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RzD-wG-LZB" firstAttribute="leading" secondItem="CD5-Ke-4CI" secondAttribute="leading" id="8DC-Ee-R5d"/>
+                            <constraint firstItem="RzD-wG-LZB" firstAttribute="top" secondItem="CD5-Ke-4CI" secondAttribute="top" id="EjA-Gm-6gw"/>
+                            <constraint firstItem="M5W-1O-yYc" firstAttribute="top" secondItem="RzD-wG-LZB" secondAttribute="bottom" id="SuU-v5-dG5"/>
+                            <constraint firstAttribute="trailing" secondItem="RzD-wG-LZB" secondAttribute="trailing" id="mt4-mL-jPU"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="RzD-wG-LZB" id="AAN-47-3qV"/>

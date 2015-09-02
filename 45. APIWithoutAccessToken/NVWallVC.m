@@ -18,11 +18,13 @@
 @end
 
 @implementation NVWallVC
-static const NSInteger numberOfWallPostsToGet=1;
+static const NSInteger numberOfWallPostsToGet=5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.arrayOfWallPosts=[[NSMutableArray alloc]init];
+    //self.tableView.estimatedRowHeight = 50.0 ;
     
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self refreshTable];
     // Do any additional setup after loading the view.
 }
@@ -93,17 +95,40 @@ static const NSInteger numberOfWallPostsToGet=1;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {
         static NSString* identifier2 = @"textCell";
         UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier2];
+        cell.textLabel.numberOfLines=0;
+        cell.textLabel.lineBreakMode=NSLineBreakByWordWrapping;
         cell.textLabel.text=wallPost.text;
         //NSLog(@"wallPost %@",wallPost.text);
 
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]) {
-        NVAttachmentCell* cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments];
+        NVAttachmentCell* cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
+        NSLog(@"index path %ld %ld",(long)indexPath.section,(long)indexPath.row);
+        self.attachmentCell=cell;
         return cell;
     }
 
     return nil;
 }
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:indexPath.section];
+    
+    if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]){
+        NVAttachmentCell* cell=self.attachmentCell;
+        
+        // NSLog(@"height ");
+       NSLog(@"height %f",CGRectGetMinY(cell.lastFrame));
+        return CGRectGetMinY(cell.lastFrame);
+    } else {
+        return 50.f;
+    }
+    
+}
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{
+    if ([cell isKindOfClass:[NVAttachmentCell class]]) {
+        cell=nil;
+    }
+}
 @end

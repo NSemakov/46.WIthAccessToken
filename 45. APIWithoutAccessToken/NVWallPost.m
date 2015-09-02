@@ -54,7 +54,7 @@
         [self.arrayOfData addObject:self.author];
         [self.arrayOfDataNames addObject:@"author"];
     }
-    if (self.text) {
+    if ([self.text length]) {//>0
         [self.arrayOfData addObject:self.text];
         [self.arrayOfDataNames addObject:@"text"];
     }
