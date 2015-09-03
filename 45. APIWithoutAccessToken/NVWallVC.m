@@ -13,6 +13,7 @@
 #import "NVAttachmentCell.h"
 #import "NVRepostCell.h"
 #import "NVLikes.h"
+#import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
 
@@ -78,8 +79,16 @@ static const NSInteger numberOfWallPostsToGet=5;
         static NSString* identifier = @"headerCell";
         NVWallHeaderCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier];
         cell.labelDate.text=wallPost.dateOfPost;
-        cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.author.firstName,wallPost.author.lastName];
-        NSURL* url=wallPost.author.photo50;
+        
+        NSURL* url;
+        if (wallPost.authorUser) {
+           cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.authorUser.firstName,wallPost.authorUser.lastName];
+            url=wallPost.authorUser.photo50;
+        } else {
+            cell.labelUser.text=[NSString stringWithFormat:@"%@",wallPost.authorGroup.name];
+            url=wallPost.authorGroup.photo_50;
+        }
+
         NSURLRequest* request=[NSURLRequest requestWithURL:url];
         __weak NVWallHeaderCell* weakCell=cell;
         

@@ -195,7 +195,7 @@
     [manager GET:@"wall.get" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSLog(@"coming %@",responseObject);
         NSArray* profiles=[[responseObject objectForKey:@"response"]objectForKey:@"profiles"];
-        NSArray* groupes=[[responseObject objectForKey:@"response"]objectForKey:@"groupes"];
+        NSArray* groupes=[[responseObject objectForKey:@"response"]objectForKey:@"groups"];
         NSMutableArray* arrayOfWallPosts=[[NSMutableArray alloc]init];
         for (NSDictionary* obj in [[responseObject objectForKey:@"response"] objectForKey:@"items"]){
             NVWallPost* sub=[[NVWallPost alloc]initWithDictionary:obj profiles:profiles andGroups:groupes];

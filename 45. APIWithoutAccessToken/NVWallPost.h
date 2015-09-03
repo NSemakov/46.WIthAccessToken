@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NVUser.h"
+
+@class NVUser;
 @class NVLikes;
+@class NVGroup;
 @interface NVWallPost : NSObject
 
-@property (strong,nonatomic) NVUser* author;
+@property (strong,nonatomic) NVUser* authorUser;
+@property (strong,nonatomic) NVGroup* authorGroup;
 @property (strong,nonatomic) NVWallPost* repost;
 
 

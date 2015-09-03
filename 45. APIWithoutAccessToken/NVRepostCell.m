@@ -10,6 +10,8 @@
 #import "NVAttachmentCell.h"
 #import "NVWallHeaderCell.h"
 #import "NVWallPost.h"
+#import "NVUser.h"
+#import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @implementation NVRepostCell
 
@@ -37,7 +39,7 @@
         self.tableView.scrollEnabled = NO;
         [self.tableView reloadData];
         self.tableView.frame=CGRectMake(0, 0, CGRectGetWidth(parentTableView.bounds), CGRectGetHeight(self.tableRect));
-        NSLog(@"height in viewdidload %@",NSStringFromCGRect(self.tableView.frame));
+        //NSLog(@"height in viewdidload %@",NSStringFromCGRect(self.tableView.frame));
         [self addSubview:self.tableView];
         
     }
@@ -50,9 +52,9 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@" numberOfRowsInSection %ld",[self.wallPost.arrayOfData count]);
+    //NSLog(@" numberOfRowsInSection %ld",[self.wallPost.arrayOfData count]);
     for (NSString* obj in self.wallPost.arrayOfDataNames){
-        NSLog(@"name: %@",obj);
+        //NSLog(@"name: %@",obj);
     }
     return [self.wallPost.arrayOfData count];
 }
@@ -64,11 +66,17 @@
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"author"]) {
         static NSString* identifier = @"headerCell";
         NVWallHeaderCell* cell=[self.parentTableView dequeueReusableCellWithIdentifier:identifier];
-        
-        
         cell.labelDate.text=wallPost.dateOfPost;
-        cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.author.firstName,wallPost.author.lastName];
-        NSURL* url=wallPost.author.photo50;
+        
+        NSURL* url;
+        if (wallPost.authorUser) {
+            cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.authorUser.firstName,wallPost.authorUser.lastName];
+            url=wallPost.authorUser.photo50;
+        } else {
+            cell.labelUser.text=[NSString stringWithFormat:@"%@",wallPost.authorGroup.name];
+            url=wallPost.authorGroup.photo_50;
+        }
+
         NSURLRequest* request=[NSURLRequest requestWithURL:url];
         __weak NVWallHeaderCell* weakCell=cell;
         

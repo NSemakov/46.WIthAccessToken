@@ -8,6 +8,8 @@
 
 #import "NVWallPost.h"
 #import "NVLikes.h"
+#import "NVGroup.h"
+#import "NVUser.h"
 @implementation NVWallPost
 - (instancetype)initWithDictionary:(NSDictionary*) params profiles:(NSArray*)profiles andGroups:(NSArray*)groupes
 {
@@ -16,9 +18,11 @@
         //fullfill profiles
         self.profiles=[profiles mutableCopy];
         self.groups=[groupes mutableCopy];
-        self.author=[[NVUser alloc]initWithDictionary:[self.profiles firstObject]];
-        //fullfill items
         self.from_id=[[params objectForKey:@"from_id"] integerValue];
+        NSLog(@"groeps %@",groupes);
+        
+        //fullfill items
+        
         if ([params objectForKey:@"copy_history"]) {
             self.repost=[[NVWallPost alloc]initWithDictionary:[[params objectForKey:@"copy_history"]firstObject] profiles:profiles andGroups:groupes];
         }
@@ -38,8 +42,9 @@
         self.commentsCount=[[[params objectForKey:@"comments"] objectForKey:@"count"] integerValue];
         self.attachments=[params objectForKey:@"attachments"];
 
-
+        [self findAuthor:profiles groups:groupes];
         [self fullfillArrayOfData];
+        
        
     }
     return self;
@@ -47,10 +52,14 @@
 - (void) fullfillArrayOfData {
     self.arrayOfData=[NSMutableArray new];
     self.arrayOfDataNames=[NSMutableArray new];
-    if (self.author) {
-        [self.arrayOfData addObject:self.author];
+    if (self.authorUser) {
+        [self.arrayOfData addObject:self.authorUser];
+        [self.arrayOfDataNames addObject:@"author"];
+    } else if (self.authorGroup) {
+        [self.arrayOfData addObject:self.authorGroup];
         [self.arrayOfDataNames addObject:@"author"];
     }
+    
     if ([self.text length]) {//>0
         [self.arrayOfData addObject:self.text];
         [self.arrayOfDataNames addObject:@"text"];
@@ -64,5 +73,25 @@
         [self.arrayOfDataNames addObject:@"attachments"];
     }
     
+}
+- (void) findAuthor:(NSArray*)profiles groups:(NSArray*) groups {
+    for (NSDictionary* obj in profiles) {
+        //NSLog(@"from %@, owner %@",[obj objectForKey:@"from_id"],[obj objectForKey:@"owner_id"]);
+        if ([[obj objectForKey:@"id"]integerValue] == self.from_id) {
+            
+            self.authorUser=[[NVUser alloc]initWithDictionary:obj];
+        }
+    }
+    if (!self.authorUser) {
+        for (NSDictionary* obj in groups) {
+            //NSLog(@"from %@, owner %@",[obj objectForKey:@"from_id"],[obj objectForKey:@"owner_id"]);
+            if ([[obj objectForKey:@"id"]integerValue] == -self.from_id) {
+                //NSLog(@"%ld",self.from_id);
+                self.authorGroup=[[NVGroup alloc]initWithDictionary:obj];
+            }
+        }
+        
+    }
+
 }
 @end
