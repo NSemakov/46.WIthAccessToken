@@ -18,8 +18,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 - (instancetype)initWithAttachments:(NSArray*) att andParentRect:(CGRect) parentRect
 {
@@ -54,7 +52,6 @@
     self.lastFrame=CGRectZero;
     if ([self.photos count]) {
         NSArray* arrayOfPhotos=[self dividePhotosIntoRows:self.photos];
-        NSLog(@"count %ld",(unsigned long)[arrayOfPhotos count]);
         CGFloat fixedSideSize=604.f;
         for (NSInteger i=0; i<[arrayOfPhotos count];i++) {
             NSMutableArray* arrayOfImageViewsInRow=[NSMutableArray new];
@@ -112,7 +109,7 @@
                 sumResizedWidth+=CGRectGetWidth(view.bounds);
             }
             CGFloat equalizingConstant=(double)(CGRectGetWidth(self.parentTableViewRect)-sumResizedWidth)/(double)([arrayOfImageViewsInRow count]+1);
-            NSLog(@"equalizingConstant %f sumResizedWidth %f CGRectGetWidth(self.bounds) %f",equalizingConstant,sumResizedWidth,CGRectGetWidth(self.parentTableViewRect));
+            //NSLog(@"equalizingConstant %f sumResizedWidth %f CGRectGetWidth(self.bounds) %f",equalizingConstant,sumResizedWidth,CGRectGetWidth(self.parentTableViewRect));
             //--end of resizing to screen width
             //equalizing in center
             UIImageView* tempView=[[UIImageView alloc]init];

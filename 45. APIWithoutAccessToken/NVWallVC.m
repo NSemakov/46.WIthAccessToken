@@ -11,6 +11,7 @@
 #import "NVWallHeaderCell.h"
 #import "NVWallPost.h"
 #import "NVAttachmentCell.h"
+#import "NVRepostCell.h"
 #import "NVLikes.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
@@ -22,6 +23,8 @@ static const NSInteger numberOfWallPostsToGet=5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.arrayOfWallPosts=[[NSMutableArray alloc]init];
+    self.repostCells=[[NSMutableDictionary alloc]init];
+    self.attachmentCells=[[NSMutableDictionary alloc]init];
     //self.tableView.estimatedRowHeight = 50.0 ;
     
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -74,8 +77,6 @@ static const NSInteger numberOfWallPostsToGet=5;
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"author"]) {
         static NSString* identifier = @"headerCell";
         NVWallHeaderCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-
-
         cell.labelDate.text=wallPost.dateOfPost;
         cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.author.firstName,wallPost.author.lastName];
         NSURL* url=wallPost.author.photo50;
@@ -90,7 +91,6 @@ static const NSInteger numberOfWallPostsToGet=5;
                                            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                
                                            }];
-        
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {
         static NSString* identifier2 = @"textCell";
@@ -102,12 +102,15 @@ static const NSInteger numberOfWallPostsToGet=5;
 
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]) {
-        NVAttachmentCell* cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
-        NSLog(@"index path %ld %ld",(long)indexPath.section,(long)indexPath.row);
-        self.attachmentCell=cell;
+        NVAttachmentCell* cell=[self.attachmentCells objectForKey:[self keyForIndexPath:indexPath]];
+        return cell;
+    } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"repost"]) {
+        NVRepostCell* cell=[self.repostCells objectForKey:[self keyForIndexPath:indexPath]];
+        //NSLog(@"index path cell4row %ld %ld",indexPath.section,indexPath.row);
         return cell;
     }
-
+    
+    
     return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -115,20 +118,43 @@ static const NSInteger numberOfWallPostsToGet=5;
     NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:indexPath.section];
     
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]){
-        NVAttachmentCell* cell=self.attachmentCell;
-        
-        // NSLog(@"height ");
-       NSLog(@"height %f",CGRectGetMinY(cell.lastFrame));
+        NVAttachmentCell* cell=nil;
+        if ([self.attachmentCells objectForKey:indexPath]) {
+            cell=[self.attachmentCells objectForKey:indexPath];
+        } else {
+            cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
+            [self.attachmentCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
+        }
         return CGRectGetMinY(cell.lastFrame);
+    } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"repost"]){
+        NVRepostCell* cell=nil;
+        if ([self.repostCells objectForKey:indexPath]) {
+            cell=[self.repostCells objectForKey:indexPath];
+        } else {
+            cell=[[NVRepostCell alloc]initWithWallPost:wallPost.repost andParentRect:self.tableView];
+            [self.repostCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
+        }
+        return CGRectGetHeight(cell.tableView.bounds);
     } else {
         return 50.f;
     }
     
 }
+- (NSIndexPath *)keyForIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath class] == [NSIndexPath class]) {
+        return indexPath;
+    }
+    return [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+}
 #pragma mark - UITableViewDelegate
+/*
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{
     if ([cell isKindOfClass:[NVAttachmentCell class]]) {
         cell=nil;
+    } else if ([cell isKindOfClass:[NVRepostCell class]]){
+        cell=nil;
     }
 }
+ */
 @end

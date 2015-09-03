@@ -14,19 +14,16 @@
     self = [super init];
     if (self) {
         //fullfill profiles
-        
         self.profiles=[profiles mutableCopy];
         self.groups=[groupes mutableCopy];
-        //NSLog(@"%@ ",self.profiles);
         self.author=[[NVUser alloc]initWithDictionary:[self.profiles firstObject]];
         //fullfill items
-        
-        //NSLog(@"%@ %@",self.author.firstName,self.author.lastName);
+        self.from_id=[[params objectForKey:@"from_id"] integerValue];
         if ([params objectForKey:@"copy_history"]) {
-            //self.repost=[[NVWallPost alloc]initWithDictionary:[params objectForKey:@"copy_history"]] ;
+            self.repost=[[NVWallPost alloc]initWithDictionary:[[params objectForKey:@"copy_history"]firstObject] profiles:profiles andGroups:groupes];
         }
-        self.from_id=(NSInteger)[params objectForKey:@"from_id"];
-        self.owner_id=(NSInteger)[params objectForKey:@"owner_id"];
+        
+        self.owner_id=[[params objectForKey:@"owner_id"] integerValue];
 
         double dateOfPost1=[[params objectForKey:@"date"] doubleValue];
         NSDate* dateOfPost2=[NSDate dateWithTimeIntervalSince1970:dateOfPost1];
@@ -37,8 +34,8 @@
         
         self.text=[params objectForKey:@"text"];
         self.likes=[[NVLikes alloc]initWithDictionary:[params objectForKey:@"likes"]];
-        self.repostsCount=(NSInteger)[[params objectForKey:@"reposts"] objectForKey:@"count"];
-        self.commentsCount=(NSInteger)[[params objectForKey:@"comments"] objectForKey:@"count"];
+        self.repostsCount=[[[params objectForKey:@"reposts"] objectForKey:@"count"] integerValue];
+        self.commentsCount=[[[params objectForKey:@"comments"] objectForKey:@"count"] integerValue];
         self.attachments=[params objectForKey:@"attachments"];
 
 
@@ -57,6 +54,10 @@
     if ([self.text length]) {//>0
         [self.arrayOfData addObject:self.text];
         [self.arrayOfDataNames addObject:@"text"];
+    }
+    if (self.repost) {
+        [self.arrayOfData addObject:self.repost];
+        [self.arrayOfDataNames addObject:@"repost"];
     }
     if (self.attachments) {
         [self.arrayOfData addObject:self.attachments];
