@@ -13,7 +13,7 @@
 @property (assign,nonatomic) NSInteger ownerId;
 @property (strong,nonatomic) NSString* artist;
 @property (strong,nonatomic) NSString* title;
-@property (assign,nonatomic) NSInteger duration;
+@property (assign,nonatomic) NSInteger duration; //in seconds
 @property (strong,nonatomic) NSURL* url;
 
 - (instancetype)initWithDictionary:(NSDictionary*) params;

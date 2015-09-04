@@ -69,8 +69,20 @@
         [self.arrayOfDataNames addObject:@"repost"];
     }
     if (self.attachments) {
-        [self.arrayOfData addObject:self.attachments];
-        [self.arrayOfDataNames addObject:@"attachments"];
+        BOOL isInValidList=NO;
+        for (NSDictionary* obj in self.attachments){
+            
+            if ([[obj objectForKey:@"type"] isEqualToString:@"photo"]||
+                [[obj objectForKey:@"type"] isEqualToString:@"audio"]||
+                [[obj objectForKey:@"type"] isEqualToString:@"doc"]) {
+                isInValidList=YES;
+            }
+        }
+        if (isInValidList) {
+            [self.arrayOfData addObject:self.attachments];
+            [self.arrayOfDataNames addObject:@"attachments"];
+        }
+        
     }
     
 }

@@ -33,6 +33,11 @@
 		84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066AD1B960D4E0037EF83 /* NVPhoto.m */; };
 		84F066B11B960F0A0037EF83 /* NVAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066B01B960F0A0037EF83 /* NVAudio.m */; };
 		84FD6D771B99A01F00558FE2 /* NVTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD6D761B99A01F00558FE2 /* NVTextCell.m */; };
+		84FD6D7D1B99FAC300558FE2 /* docIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D791B99FAC300558FE2 /* docIcon.png */; };
+		84FD6D7E1B99FAC300558FE2 /* pauseAudio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D7A1B99FAC300558FE2 /* pauseAudio.jpg */; };
+		84FD6D7F1B99FAC300558FE2 /* playAudio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D7B1B99FAC300558FE2 /* playAudio.jpg */; };
+		84FD6D801B99FAC300558FE2 /* Копия audioIcons.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D7C1B99FAC300558FE2 /* Копия audioIcons.jpg */; };
+		84FD6D841B9A0ED100558FE2 /* NVDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD6D831B9A0ED100558FE2 /* NVDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +101,12 @@
 		84F066B01B960F0A0037EF83 /* NVAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAudio.m; sourceTree = "<group>"; };
 		84FD6D751B99A01F00558FE2 /* NVTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVTextCell.h; sourceTree = "<group>"; };
 		84FD6D761B99A01F00558FE2 /* NVTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVTextCell.m; sourceTree = "<group>"; };
+		84FD6D791B99FAC300558FE2 /* docIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docIcon.png; sourceTree = "<group>"; };
+		84FD6D7A1B99FAC300558FE2 /* pauseAudio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pauseAudio.jpg; sourceTree = "<group>"; };
+		84FD6D7B1B99FAC300558FE2 /* playAudio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = playAudio.jpg; sourceTree = "<group>"; };
+		84FD6D7C1B99FAC300558FE2 /* Копия audioIcons.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Копия audioIcons.jpg"; sourceTree = "<group>"; };
+		84FD6D821B9A0ED100558FE2 /* NVDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVDocument.h; sourceTree = "<group>"; };
+		84FD6D831B9A0ED100558FE2 /* NVDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVDocument.m; sourceTree = "<group>"; };
 		BD483B21CB1873FE9DCD784C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A363DDB7F508AC7EA97246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +135,8 @@
 			children = (
 				84F066AC1B960D4E0037EF83 /* NVPhoto.h */,
 				84F066AD1B960D4E0037EF83 /* NVPhoto.m */,
+				84FD6D821B9A0ED100558FE2 /* NVDocument.h */,
+				84FD6D831B9A0ED100558FE2 /* NVDocument.m */,
 				84F066AF1B960F0A0037EF83 /* NVAudio.h */,
 				84F066B01B960F0A0037EF83 /* NVAudio.m */,
 				847AD36F1B906E1300581426 /* NVUser.h */,
@@ -155,14 +168,7 @@
 				84F066A11B95D1320037EF83 /* NVWallVC.m */,
 				84B3655C1B91E773003E33C2 /* NVSubscriptionVC.h */,
 				84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */,
-				84F066A61B95E6010037EF83 /* NVWallHeaderCell.h */,
-				84F066A71B95E6010037EF83 /* NVWallHeaderCell.m */,
-				84F066A91B960B630037EF83 /* NVAttachmentCell.h */,
-				84F066AA1B960B630037EF83 /* NVAttachmentCell.m */,
-				84F047241B983AD10039FEF4 /* NVRepostCell.h */,
-				84F047251B983AD10039FEF4 /* NVRepostCell.m */,
-				84FD6D751B99A01F00558FE2 /* NVTextCell.h */,
-				84FD6D761B99A01F00558FE2 /* NVTextCell.m */,
+				84FD6D811B99FADC00558FE2 /* Cells */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -192,10 +198,9 @@
 			children = (
 				84EB34A01B9060F800C7E0AC /* AppDelegate.h */,
 				84EB34A11B9060F800C7E0AC /* AppDelegate.m */,
+				84FD6D781B99FAC300558FE2 /* Icons */,
 				84B365601B91E78A003E33C2 /* ViewControllers */,
 				84B3655F1B91E77C003E33C2 /* Models */,
-				847AD3781B90A9DF00581426 /* NVPhotoCell.h */,
-				847AD3791B90A9DF00581426 /* NVPhotoCell.m */,
 				847AD3751B90753300581426 /* NVServerManager.h */,
 				847AD3761B90753300581426 /* NVServerManager.m */,
 				84EB34A61B9060F800C7E0AC /* Main.storyboard */,
@@ -230,6 +235,34 @@
 				84EB34B71B9060F800C7E0AC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84FD6D781B99FAC300558FE2 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				84FD6D791B99FAC300558FE2 /* docIcon.png */,
+				84FD6D7A1B99FAC300558FE2 /* pauseAudio.jpg */,
+				84FD6D7B1B99FAC300558FE2 /* playAudio.jpg */,
+				84FD6D7C1B99FAC300558FE2 /* Копия audioIcons.jpg */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		84FD6D811B99FADC00558FE2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				847AD3781B90A9DF00581426 /* NVPhotoCell.h */,
+				847AD3791B90A9DF00581426 /* NVPhotoCell.m */,
+				84F066A61B95E6010037EF83 /* NVWallHeaderCell.h */,
+				84F066A71B95E6010037EF83 /* NVWallHeaderCell.m */,
+				84F066A91B960B630037EF83 /* NVAttachmentCell.h */,
+				84F066AA1B960B630037EF83 /* NVAttachmentCell.m */,
+				84F047241B983AD10039FEF4 /* NVRepostCell.h */,
+				84F047251B983AD10039FEF4 /* NVRepostCell.m */,
+				84FD6D751B99A01F00558FE2 /* NVTextCell.h */,
+				84FD6D761B99A01F00558FE2 /* NVTextCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		A1543847A5D2E6DD7D7EFA67 /* Pods */ = {
@@ -332,7 +365,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EB34A81B9060F800C7E0AC /* Main.storyboard in Resources */,
+				84FD6D7D1B99FAC300558FE2 /* docIcon.png in Resources */,
 				84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */,
+				84FD6D7E1B99FAC300558FE2 /* pauseAudio.jpg in Resources */,
+				84FD6D7F1B99FAC300558FE2 /* playAudio.jpg in Resources */,
+				84FD6D801B99FAC300558FE2 /* Копия audioIcons.jpg in Resources */,
 				84EB34AA1B9060F800C7E0AC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +425,7 @@
 				84B365581B91D2EE003E33C2 /* NVFollowersVC.m in Sources */,
 				847AD3741B906E8700581426 /* NVLoginVC.m in Sources */,
 				84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */,
+				84FD6D841B9A0ED100558FE2 /* NVDocument.m in Sources */,
 				84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */,
 				847AD3771B90753300581426 /* NVServerManager.m in Sources */,
 				847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */,

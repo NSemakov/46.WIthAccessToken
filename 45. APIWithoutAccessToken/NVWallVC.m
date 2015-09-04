@@ -132,6 +132,7 @@ static const NSInteger numberOfWallPostsToGet=5;
         if ([self.attachmentCells objectForKey:indexPath]) {
             cell=[self.attachmentCells objectForKey:indexPath];
         } else {
+            NSLog(@"attach %@",wallPost.attachments);
             cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
             [self.attachmentCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
@@ -176,7 +177,7 @@ static const NSInteger numberOfWallPostsToGet=5;
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 1.f;
+    return 3.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

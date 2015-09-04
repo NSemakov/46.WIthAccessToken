@@ -10,17 +10,22 @@
 #import <UIKit/UIKit.h>
 @implementation NVPhoto
 
-- (instancetype)initWithDictionary:(NSDictionary*) params;
+- (instancetype)initWithDictionary:(NSDictionary*) params
 {
     self = [super init];
     if (self) {
-        self.idPhoto=(NSInteger)[params objectForKey:@"id"];
-        self.album_id=(NSInteger)[params objectForKey:@"album_id"];
-        self.owner_id=(NSInteger)[params objectForKey:@"owner_id"];
-        self.user_id=(NSInteger)[params objectForKey:@"user_id"];
+        self.idPhoto=[[params objectForKey:@"id"]integerValue];
+        self.album_id=[[params objectForKey:@"album_id"]integerValue];
+        self.owner_id=[[params objectForKey:@"owner_id"]integerValue];
+        self.user_id=[[params objectForKey:@"user_id"]integerValue];
         self.widthPhoto=[[params objectForKey:@"width"] unsignedIntegerValue];
         self.heightPhoto=[[params objectForKey:@"height"] unsignedIntegerValue];
-        
+        if (!self.widthPhoto) {
+            self.widthPhoto=604;
+        }
+        if (!self.heightPhoto){
+            self.heightPhoto=604;
+        }
         self.photo_75=[NSURL URLWithString:[params objectForKey:@"photo_75"]];
         self.photo_130=[NSURL URLWithString:[params objectForKey:@"photo_130"]];
         //NSLog(@"%@",self.photo_130);
