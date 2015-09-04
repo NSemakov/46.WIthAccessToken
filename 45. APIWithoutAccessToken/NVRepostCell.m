@@ -67,26 +67,16 @@
         NVWallHeaderCell* cell=[self.parentTableView dequeueReusableCellWithIdentifier:identifier];
         cell.labelDate.text=wallPost.dateOfPost;
         
-        NSURL* url;
+
         if (wallPost.authorUser) {
             cell.labelUser.text=[NSString stringWithFormat:@"%@ %@",wallPost.authorUser.firstName,wallPost.authorUser.lastName];
-            url=wallPost.authorUser.photo50;
+            //url=wallPost.authorUser.photo50;
         } else {
             cell.labelUser.text=[NSString stringWithFormat:@"%@",wallPost.authorGroup.name];
-            url=wallPost.authorGroup.photo_50;
+            //url=wallPost.authorGroup.photo_50;
         }
+        [cell.imageViewUser setImage:[UIImage imageNamed:@"repostIcon"]];
 
-        NSURLRequest* request=[NSURLRequest requestWithURL:url];
-        __weak NVWallHeaderCell* weakCell=cell;
-        
-        [cell.imageViewUser setImageWithURLRequest:request placeholderImage:nil
-                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                               [weakCell.imageViewUser setImage:image];
-                                               [weakCell layoutSubviews];
-                                               
-                                           } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                               
-                                           }];
         
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {

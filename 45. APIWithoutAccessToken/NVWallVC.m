@@ -102,6 +102,7 @@ static const NSInteger numberOfWallPostsToGet=5;
                                            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                
                                            }];
+        cell.backgroundColor=[[UIColor grayColor]colorWithAlphaComponent:0.1];
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {
         static NSString* identifier2 = @"textCell";
