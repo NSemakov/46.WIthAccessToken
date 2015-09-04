@@ -32,6 +32,7 @@
 		84F066AB1B960B630037EF83 /* NVAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066AA1B960B630037EF83 /* NVAttachmentCell.m */; };
 		84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066AD1B960D4E0037EF83 /* NVPhoto.m */; };
 		84F066B11B960F0A0037EF83 /* NVAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066B01B960F0A0037EF83 /* NVAudio.m */; };
+		84FD6D771B99A01F00558FE2 /* NVTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD6D761B99A01F00558FE2 /* NVTextCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		84F066AD1B960D4E0037EF83 /* NVPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhoto.m; sourceTree = "<group>"; };
 		84F066AF1B960F0A0037EF83 /* NVAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVAudio.h; sourceTree = "<group>"; };
 		84F066B01B960F0A0037EF83 /* NVAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAudio.m; sourceTree = "<group>"; };
+		84FD6D751B99A01F00558FE2 /* NVTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVTextCell.h; sourceTree = "<group>"; };
+		84FD6D761B99A01F00558FE2 /* NVTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVTextCell.m; sourceTree = "<group>"; };
 		BD483B21CB1873FE9DCD784C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A363DDB7F508AC7EA97246 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +161,8 @@
 				84F066AA1B960B630037EF83 /* NVAttachmentCell.m */,
 				84F047241B983AD10039FEF4 /* NVRepostCell.h */,
 				84F047251B983AD10039FEF4 /* NVRepostCell.m */,
+				84FD6D751B99A01F00558FE2 /* NVTextCell.h */,
+				84FD6D761B99A01F00558FE2 /* NVTextCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FD6D771B99A01F00558FE2 /* NVTextCell.m in Sources */,
 				84B365581B91D2EE003E33C2 /* NVFollowersVC.m in Sources */,
 				847AD3741B906E8700581426 /* NVLoginVC.m in Sources */,
 				84F066AE1B960D4E0037EF83 /* NVPhoto.m in Sources */,

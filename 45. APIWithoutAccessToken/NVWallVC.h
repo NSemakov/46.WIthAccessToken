@@ -17,4 +17,5 @@
 
 @property (strong,nonatomic) NSMutableDictionary* attachmentCells;
 @property (strong,nonatomic) NSMutableDictionary* repostCells;
+@property (strong,nonatomic) NSMutableDictionary* textCells;
 @end

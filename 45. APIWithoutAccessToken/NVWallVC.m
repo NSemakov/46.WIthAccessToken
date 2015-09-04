@@ -12,6 +12,7 @@
 #import "NVWallPost.h"
 #import "NVAttachmentCell.h"
 #import "NVRepostCell.h"
+#import "NVTextCell.h"
 #import "NVLikes.h"
 #import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
@@ -103,10 +104,8 @@ static const NSInteger numberOfWallPostsToGet=5;
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {
         static NSString* identifier2 = @"textCell";
-        UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier2];
-        cell.textLabel.numberOfLines=0;
-        cell.textLabel.lineBreakMode=NSLineBreakByWordWrapping;
-        cell.textLabel.text=wallPost.text;
+        NVTextCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier2];
+        cell.labelText.text=wallPost.text;
         //NSLog(@"wallPost %@",wallPost.text);
 
         return cell;
@@ -114,8 +113,9 @@ static const NSInteger numberOfWallPostsToGet=5;
         NVAttachmentCell* cell=[self.attachmentCells objectForKey:[self keyForIndexPath:indexPath]];
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"repost"]) {
+        
         NVRepostCell* cell=[self.repostCells objectForKey:[self keyForIndexPath:indexPath]];
-        //NSLog(@"index path cell4row %ld %ld",indexPath.section,indexPath.row);
+        
         return cell;
     }
     
@@ -144,6 +144,10 @@ static const NSInteger numberOfWallPostsToGet=5;
             [self.repostCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
         return CGRectGetHeight(cell.tableView.bounds);
+    } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]){
+        
+        return [NVTextCell heightForText:wallPost.text forWidth:CGRectGetWidth(self.tableView.bounds)];
+
     } else {
         return 50.f;
     }

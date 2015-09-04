@@ -12,6 +12,7 @@
 #import "NVWallPost.h"
 #import "NVUser.h"
 #import "NVGroup.h"
+#import "NVTextCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @implementation NVRepostCell
 
@@ -92,12 +93,8 @@
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]) {
         static NSString* identifier2 = @"textCell";
-        UITableViewCell* cell=[self.parentTableView dequeueReusableCellWithIdentifier:identifier2];
-        cell.textLabel.numberOfLines=0;
-        cell.textLabel.lineBreakMode=NSLineBreakByWordWrapping;
-        cell.textLabel.text=wallPost.text;
-        //NSLog(@"wallPost %@",wallPost.text);
-        
+        NVTextCell* cell=[self.parentTableView dequeueReusableCellWithIdentifier:identifier2];
+        cell.labelText.text=wallPost.text;
         return cell;
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]) {
         //NVAttachmentCell* cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
@@ -126,13 +123,15 @@
        
         rowHeight=CGRectGetMinY(cell.lastFrame);
         
+    } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"text"]){
+        
+        rowHeight= [NVTextCell heightForText:wallPost.text forWidth:CGRectGetWidth(self.tableView.bounds)];
+        
     } else {
-        rowHeight=50.f;
+        rowHeight= 50.f;
     }
     
     self.tableRect=CGRectMake(0, 0, CGRectGetWidth(self.parentTableView.bounds), CGRectGetHeight(self.tableRect)+rowHeight);
-    //NSLog(@"height inside%f",CGRectGetHeight(self.tableRect));
-    
     return rowHeight;
     
 }
