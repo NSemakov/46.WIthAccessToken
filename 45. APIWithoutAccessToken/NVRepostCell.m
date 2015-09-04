@@ -38,6 +38,7 @@
         self.tableView.delegate=self;
         self.tableView.dataSource=self;
         self.tableView.scrollEnabled = NO;
+        self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
         [self.tableView reloadData];
         self.tableView.frame=CGRectMake(0, 0, CGRectGetWidth(parentTableView.bounds), CGRectGetHeight(self.tableRect));
         //NSLog(@"height in viewdidload %@",NSStringFromCGRect(self.tableView.frame));
@@ -53,10 +54,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //NSLog(@" numberOfRowsInSection %ld",[self.wallPost.arrayOfData count]);
-    for (NSString* obj in self.wallPost.arrayOfDataNames){
-        //NSLog(@"name: %@",obj);
-    }
+
     return [self.wallPost.arrayOfData count];
 }
 
@@ -134,6 +132,10 @@
     self.tableRect=CGRectMake(0, 0, CGRectGetWidth(self.parentTableView.bounds), CGRectGetHeight(self.tableRect)+rowHeight);
     return rowHeight;
     
+}
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (NSIndexPath *)keyForIndexPath:(NSIndexPath *)indexPath
 {

@@ -19,7 +19,7 @@
         self.profiles=[profiles mutableCopy];
         self.groups=[groupes mutableCopy];
         self.from_id=[[params objectForKey:@"from_id"] integerValue];
-        NSLog(@"groeps %@",groupes);
+       
         
         //fullfill items
         

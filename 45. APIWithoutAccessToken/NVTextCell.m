@@ -40,7 +40,7 @@
                                 attributes:attributes
                                    context:nil];
     //rect=CGRectIntegral(rect);
-    NSLog(@"text rect %@",NSStringFromCGRect(rect));
+    
     
     return ceilf(CGRectGetHeight(rect));
 }

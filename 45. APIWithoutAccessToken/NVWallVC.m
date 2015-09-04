@@ -27,6 +27,7 @@ static const NSInteger numberOfWallPostsToGet=5;
     self.arrayOfWallPosts=[[NSMutableArray alloc]init];
     self.repostCells=[[NSMutableDictionary alloc]init];
     self.attachmentCells=[[NSMutableDictionary alloc]init];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     //self.tableView.estimatedRowHeight = 50.0 ;
     
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -161,6 +162,30 @@ static const NSInteger numberOfWallPostsToGet=5;
     return [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
 }
 #pragma mark - UITableViewDelegate
+/*
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==[self.arrayOfWallPosts count]-1) {
+        [self refreshTable];
+    }
+    //
+}*/
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    CGRect rect=CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 1);
+    UIView *view=[[UIView alloc]initWithFrame:rect];
+    view.backgroundColor=[UIColor grayColor];
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1.f;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    if (section==[self.arrayOfWallPosts count]-1) {
+        [self refreshTable];
+    }
+}
 /*
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{
     if ([cell isKindOfClass:[NVAttachmentCell class]]) {
