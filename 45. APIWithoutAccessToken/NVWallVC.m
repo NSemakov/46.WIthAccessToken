@@ -13,6 +13,7 @@
 #import "NVAttachmentCell.h"
 #import "NVRepostCell.h"
 #import "NVTextCell.h"
+#import "NVMainTableHeader.h"
 #import "NVLikes.h"
 #import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
@@ -28,6 +29,14 @@ static const NSInteger numberOfWallPostsToGet=5;
     self.repostCells=[[NSMutableDictionary alloc]init];
     self.attachmentCells=[[NSMutableDictionary alloc]init];
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
+    NVMainTableHeader* cell=[self.tableView dequeueReusableCellWithIdentifier:@"NVMainTableHeader"];
+    cell.frame=CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 50);
+    //CGRect rect=CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 50);
+    //UIView* view=[[UIView alloc]initWithFrame:rect];
+    //view.backgroundColor=[UIColor redColor];
+    self.tableView.tableHeaderView=cell;
+    //NSLog(@"slfj %@",NSStringFromCGRect(cell.frame));
     //self.tableView.estimatedRowHeight = 50.0 ;
     
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -178,7 +187,7 @@ static const NSInteger numberOfWallPostsToGet=5;
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 3.f;
+    return 1.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
