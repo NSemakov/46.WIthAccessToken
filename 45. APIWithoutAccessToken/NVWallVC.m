@@ -15,6 +15,7 @@
 #import "NVTextCell.h"
 #import "NVMainTableHeader.h"
 #import "NVLikes.h"
+#import "NVLikeRepostComCell.h"
 #import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
@@ -28,6 +29,7 @@ static const NSInteger numberOfWallPostsToGet=5;
     self.arrayOfWallPosts=[[NSMutableArray alloc]init];
     self.repostCells=[[NSMutableDictionary alloc]init];
     self.attachmentCells=[[NSMutableDictionary alloc]init];
+    self.endCells=[[NSMutableDictionary alloc]init];
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     NVMainTableHeader* cell=[self.tableView dequeueReusableCellWithIdentifier:@"NVMainTableHeader"];
@@ -79,12 +81,14 @@ static const NSInteger numberOfWallPostsToGet=5;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:section];
    // NSLog(@"numberOfRowsInSection %ld",[wallPost.arrayOfData count]);
-    return [wallPost.arrayOfData count];
+    return [wallPost.arrayOfDataNames count]+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:indexPath.section];
+    if (indexPath.row<[wallPost.arrayOfDataNames count]) {
+        
     
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"author"]) {
         static NSString* identifier = @"headerCell";
@@ -129,14 +133,20 @@ static const NSInteger numberOfWallPostsToGet=5;
         
         return cell;
     }
-    
+    }
+    if (indexPath.row ==[wallPost.arrayOfDataNames count]) {
+        NVLikeRepostComCell* cell=[self.endCells objectForKey:[self keyForIndexPath:indexPath]];
+        cell.imageLike.image=[UIImage imageNamed:@"likeIcon.png"];
+        cell.labelLikeCount.text=[NSString stringWithFormat:@"%d",3];
+        return cell;
+    }
     
     return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NVWallPost* wallPost=[self.arrayOfWallPosts objectAtIndex:indexPath.section];
-    
+    if (indexPath.row<[wallPost.arrayOfDataNames count]) {
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]){
         NVAttachmentCell* cell=nil;
         if ([self.attachmentCells objectForKey:indexPath]) {
@@ -162,6 +172,18 @@ static const NSInteger numberOfWallPostsToGet=5;
 
     } else {
         return 50.f;
+    }
+    } else if (indexPath.row==[wallPost.arrayOfDataNames count]) {
+        NVLikeRepostComCell* cell=nil;
+        if ([self.endCells objectForKey:indexPath]) {
+            cell=[self.endCells objectForKey:indexPath];
+        } else {
+            cell=[tableView dequeueReusableCellWithIdentifier:@"NVLikeRepostComCell"];
+            [self.endCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
+        }
+        return 50.f;
+    } else {
+        return 200;
     }
     
 }

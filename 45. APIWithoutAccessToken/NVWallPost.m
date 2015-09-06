@@ -50,22 +50,17 @@
     return self;
 }
 - (void) fullfillArrayOfData {
-    self.arrayOfData=[NSMutableArray new];
     self.arrayOfDataNames=[NSMutableArray new];
     if (self.authorUser) {
-        [self.arrayOfData addObject:self.authorUser];
         [self.arrayOfDataNames addObject:@"author"];
     } else if (self.authorGroup) {
-        [self.arrayOfData addObject:self.authorGroup];
         [self.arrayOfDataNames addObject:@"author"];
     }
     
     if ([self.text length]) {//>0
-        [self.arrayOfData addObject:self.text];
         [self.arrayOfDataNames addObject:@"text"];
     }
     if (self.repost) {
-        [self.arrayOfData addObject:self.repost];
         [self.arrayOfDataNames addObject:@"repost"];
     }
     if (self.attachments) {
@@ -79,10 +74,13 @@
             }
         }
         if (isInValidList) {
-            [self.arrayOfData addObject:self.attachments];
             [self.arrayOfDataNames addObject:@"attachments"];
         }
         
+    }
+    if (1) {
+        //[self.arrayOfData addObject:self.repost];
+        //[self.arrayOfDataNames addObject:@"repost"];
     }
     
 }

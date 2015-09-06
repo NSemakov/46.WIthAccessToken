@@ -32,7 +32,6 @@
 @property (strong,nonatomic) NSMutableArray* profiles;
 @property (strong,nonatomic) NSMutableArray* groups;
 
-@property (strong,nonatomic) NSMutableArray* arrayOfData;
 @property (strong,nonatomic) NSMutableArray* arrayOfDataNames;
 - (instancetype)initWithDictionary:(NSDictionary*) params profiles:(NSArray*)profiles andGroups:(NSArray*)groupes;
 @end
