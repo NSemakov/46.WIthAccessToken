@@ -20,7 +20,6 @@
 		84B3655E1B91E773003E33C2 /* NVSubscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */; };
 		84E36C8F1B920F7400AC1F56 /* NVWallPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E36C8E1B920F7400AC1F56 /* NVWallPost.m */; };
 		84EA589F1B9B407B00AF0386 /* NVLikeRepostComCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA589E1B9B407B00AF0386 /* NVLikeRepostComCell.m */; };
-		84EA58A11B9B470700AF0386 /* likeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EA58A01B9B470700AF0386 /* likeIcon.png */; };
 		84EB349F1B9060F800C7E0AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB349E1B9060F800C7E0AC /* main.m */; };
 		84EB34A21B9060F800C7E0AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34A11B9060F800C7E0AC /* AppDelegate.m */; };
 		84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34A41B9060F800C7E0AC /* NVFriendsVC.m */; };
@@ -29,7 +28,9 @@
 		84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB34AB1B9060F800C7E0AC /* LaunchScreen.xib */; };
 		84EB34B91B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */; };
 		84EBDEFA1B99093500AD9460 /* NVGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDEF91B99093500AD9460 /* NVGroup.m */; };
-		84EBFFE71BA0B18E0083DDFA /* repostUnderPostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */; };
+		84ED50091BA223F00034BE3C /* repostUnderPostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ED50071BA223F00034BE3C /* repostUnderPostIcon.png */; };
+		84ED500B1BA2265C0034BE3C /* likeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ED500A1BA2265C0034BE3C /* likeIcon.png */; };
+		84ED500D1BA2269D0034BE3C /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ED500C1BA2269D0034BE3C /* comment.png */; };
 		84F047261B983AD10039FEF4 /* NVRepostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F047251B983AD10039FEF4 /* NVRepostCell.m */; };
 		84F066A21B95D1320037EF83 /* NVWallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A11B95D1320037EF83 /* NVWallVC.m */; };
 		84F066A51B95D7500037EF83 /* NVLikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A41B95D7500037EF83 /* NVLikes.m */; };
@@ -80,7 +81,6 @@
 		84E36C8E1B920F7400AC1F56 /* NVWallPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVWallPost.m; sourceTree = "<group>"; };
 		84EA589D1B9B407B00AF0386 /* NVLikeRepostComCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLikeRepostComCell.h; sourceTree = "<group>"; };
 		84EA589E1B9B407B00AF0386 /* NVLikeRepostComCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLikeRepostComCell.m; sourceTree = "<group>"; };
-		84EA58A01B9B470700AF0386 /* likeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeIcon.png; sourceTree = "<group>"; };
 		84EB34991B9060F700C7E0AC /* 45. APIWithoutAccessToken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "45. APIWithoutAccessToken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB349D1B9060F800C7E0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EB349E1B9060F800C7E0AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,7 +96,9 @@
 		84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5__APIWithoutAccessTokenTests.m; sourceTree = "<group>"; };
 		84EBDEF81B99093500AD9460 /* NVGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVGroup.h; sourceTree = "<group>"; };
 		84EBDEF91B99093500AD9460 /* NVGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVGroup.m; sourceTree = "<group>"; };
-		84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repostUnderPostIcon.png; sourceTree = "<group>"; };
+		84ED50071BA223F00034BE3C /* repostUnderPostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repostUnderPostIcon.png; sourceTree = "<group>"; };
+		84ED500A1BA2265C0034BE3C /* likeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeIcon.png; sourceTree = "<group>"; };
+		84ED500C1BA2269D0034BE3C /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		84F047241B983AD10039FEF4 /* NVRepostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVRepostCell.h; sourceTree = "<group>"; };
 		84F047251B983AD10039FEF4 /* NVRepostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVRepostCell.m; sourceTree = "<group>"; };
 		84F066A01B95D1320037EF83 /* NVWallVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallVC.h; sourceTree = "<group>"; };
@@ -254,10 +256,11 @@
 			children = (
 				84FD6D791B99FAC300558FE2 /* docIcon.png */,
 				84FD6D7A1B99FAC300558FE2 /* pauseAudio.jpg */,
-				84EA58A01B9B470700AF0386 /* likeIcon.png */,
 				84FD6D7B1B99FAC300558FE2 /* playAudio.jpg */,
-				84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */,
+				84ED500A1BA2265C0034BE3C /* likeIcon.png */,
+				84ED50071BA223F00034BE3C /* repostUnderPostIcon.png */,
 				847508BE1B9A6144006A486B /* repostIcon.png */,
+				84ED500C1BA2269D0034BE3C /* comment.png */,
 				84FD6D7C1B99FAC300558FE2 /* Копия audioIcons.jpg */,
 			);
 			path = Icons;
@@ -385,13 +388,14 @@
 			files = (
 				84EB34A81B9060F800C7E0AC /* Main.storyboard in Resources */,
 				84FD6D7D1B99FAC300558FE2 /* docIcon.png in Resources */,
-				84EBFFE71BA0B18E0083DDFA /* repostUnderPostIcon.png in Resources */,
+				84ED50091BA223F00034BE3C /* repostUnderPostIcon.png in Resources */,
 				84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */,
 				84FD6D7E1B99FAC300558FE2 /* pauseAudio.jpg in Resources */,
-				84EA58A11B9B470700AF0386 /* likeIcon.png in Resources */,
+				84ED500B1BA2265C0034BE3C /* likeIcon.png in Resources */,
 				84FD6D7F1B99FAC300558FE2 /* playAudio.jpg in Resources */,
 				84FD6D801B99FAC300558FE2 /* Копия audioIcons.jpg in Resources */,
 				84EB34AA1B9060F800C7E0AC /* Images.xcassets in Resources */,
+				84ED500D1BA2269D0034BE3C /* comment.png in Resources */,
 				847508BF1B9A6144006A486B /* repostIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

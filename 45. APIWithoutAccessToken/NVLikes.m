@@ -14,10 +14,10 @@
 {
     self = [super init];
     if (self) {
-        self.count=[params objectForKey:@"count"];
-        self.user_likes=[params objectForKey:@"user_likes"];
-        self.can_like=[params objectForKey:@"can_like"];
-        self.can_publish=[params objectForKey:@"can_publish"];
+        self.count=[[params objectForKey:@"count"] integerValue];
+        self.user_likes=[[params objectForKey:@"user_likes"] integerValue];
+        self.can_like=[[params objectForKey:@"can_like"] integerValue];
+        self.can_publish=[[params objectForKey:@"can_publish"] integerValue];
     }
     return self;
 }

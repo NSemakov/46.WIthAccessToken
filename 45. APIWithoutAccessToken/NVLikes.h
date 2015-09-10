@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NVLikes : NSObject
-@property (strong,nonatomic) NSNumber* count;
-@property (strong,nonatomic) NSNumber* user_likes;
-@property (strong,nonatomic) NSNumber* can_like;
-@property (strong,nonatomic) NSNumber* can_publish;
+@property (assign,nonatomic) NSInteger count;
+@property (assign,nonatomic) NSInteger user_likes;
+@property (assign,nonatomic) NSInteger can_like;
+@property (assign,nonatomic) NSInteger can_publish;
 
 - (instancetype)initWithDictionary:(NSDictionary*) params;
 @end

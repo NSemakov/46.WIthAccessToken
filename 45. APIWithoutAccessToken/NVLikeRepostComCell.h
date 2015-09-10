@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface NVLikeRepostComCell : UITableViewCell
-//@property (weak, nonatomic) IBOutlet UIImageView *imageLike;
-//@property (weak, nonatomic) IBOutlet UILabel *labelLikeCount;
-@property (weak, nonatomic) IBOutlet UIImageView *imageRepost;
-@property (weak, nonatomic) IBOutlet UILabel *labelRepostCount;
+
 @property (weak, nonatomic) IBOutlet UIButton *buttonLike;
+@property (weak, nonatomic) IBOutlet UIButton *buttonRepost;
+@property (weak, nonatomic) IBOutlet UIButton *buttonComment;
+- (IBAction)actionShowComments:(UIButton *)sender;
+- (IBAction)actionLike:(UIButton *)sender;
+- (IBAction)actionRepost:(UIButton *)sender;
 
 @end

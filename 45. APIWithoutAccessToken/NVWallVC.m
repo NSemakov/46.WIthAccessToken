@@ -136,12 +136,14 @@ static const NSInteger numberOfWallPostsToGet=5;
     }
     if (indexPath.row ==[wallPost.arrayOfDataNames count]) {
         NVLikeRepostComCell* cell=[self.endCells objectForKey:[self keyForIndexPath:indexPath]];
-        //cell.imageLike.image=[UIImage imageNamed:@"likeIcon.png"];
-        //cell.labelLikeCount.text=@"";//[NSString stringWithFormat:@"%d",3];
-        [cell.buttonLike setTitle:@"sldk" forState:UIControlStateNormal|UIControlStateHighlighted];
-        //[cell.buttonLike setBackgroundImage:<#(UIImage *)#> forState:<#(UIControlState)#>]
-        cell.imageRepost.image=[UIImage imageNamed:@"repostUnderPostIcon.png"];
-        cell.labelRepostCount.text=@"";
+        NSString* likesCount=wallPost.likes.count > 0 ? [NSString stringWithFormat:@"%ld",wallPost.likes.count] : @"" ;
+        [cell.buttonLike setTitle:likesCount forState:UIControlStateNormal];
+        NSString* repostCount=wallPost.repostsCount > 0 ? [NSString stringWithFormat:@"%ld",wallPost.repostsCount] : @"" ;
+        [cell.buttonRepost setTitle:repostCount forState:UIControlStateNormal];
+        NSString* commentsCount=wallPost.commentsCount > 0 ? [NSString stringWithFormat:@"%ld",wallPost.commentsCount] : @"" ;
+        [cell.buttonComment setTitle:commentsCount forState:UIControlStateNormal];
+       // NSLog(@"cell like repost com cell %@",cell);
+        
         return cell;
     }
     
@@ -153,8 +155,8 @@ static const NSInteger numberOfWallPostsToGet=5;
     if (indexPath.row<[wallPost.arrayOfDataNames count]) {
     if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"attachments"]){
         NVAttachmentCell* cell=nil;
-        if ([self.attachmentCells objectForKey:indexPath]) {
-            cell=[self.attachmentCells objectForKey:indexPath];
+        if ([self.attachmentCells objectForKey:[self keyForIndexPath:indexPath]]) {
+            cell=[self.attachmentCells objectForKey:[self keyForIndexPath:indexPath]];
         } else {
             //NSLog(@"attach %@",wallPost.attachments);
             cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
@@ -163,8 +165,8 @@ static const NSInteger numberOfWallPostsToGet=5;
         return CGRectGetMinY(cell.lastFrame);
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"repost"]){
         NVRepostCell* cell=nil;
-        if ([self.repostCells objectForKey:indexPath]) {
-            cell=[self.repostCells objectForKey:indexPath];
+        if ([self.repostCells objectForKey:[self keyForIndexPath:indexPath]]) {
+            cell=[self.repostCells objectForKey:[self keyForIndexPath:indexPath]];
         } else {
             cell=[[NVRepostCell alloc]initWithWallPost:wallPost.repost andParentRect:self.tableView];
             [self.repostCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
@@ -179,15 +181,16 @@ static const NSInteger numberOfWallPostsToGet=5;
     }
     } else if (indexPath.row==[wallPost.arrayOfDataNames count]) {
         NVLikeRepostComCell* cell=nil;
-        if ([self.endCells objectForKey:indexPath]) {
-            cell=[self.endCells objectForKey:indexPath];
+        if ([self.endCells objectForKey:[self keyForIndexPath:indexPath]]) {
+            cell=[self.endCells objectForKey:[self keyForIndexPath:indexPath]];
+            //NSLog(@"height like repost com cell %@",cell);
         } else {
             cell=[tableView dequeueReusableCellWithIdentifier:@"NVLikeRepostComCell"];
             [self.endCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
         return 50.f;
     } else {
-        return 200;
+        return 0;
     }
     
 }
