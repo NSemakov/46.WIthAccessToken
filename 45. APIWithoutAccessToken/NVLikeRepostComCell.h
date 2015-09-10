@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NVLikeRepostComCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageLike;
-@property (weak, nonatomic) IBOutlet UILabel *labelLikeCount;
+//@property (weak, nonatomic) IBOutlet UIImageView *imageLike;
+//@property (weak, nonatomic) IBOutlet UILabel *labelLikeCount;
+@property (weak, nonatomic) IBOutlet UIImageView *imageRepost;
+@property (weak, nonatomic) IBOutlet UILabel *labelRepostCount;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLike;
 
 @end

@@ -29,6 +29,7 @@
 		84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB34AB1B9060F800C7E0AC /* LaunchScreen.xib */; };
 		84EB34B91B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */; };
 		84EBDEFA1B99093500AD9460 /* NVGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDEF91B99093500AD9460 /* NVGroup.m */; };
+		84EBFFE71BA0B18E0083DDFA /* repostUnderPostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */; };
 		84F047261B983AD10039FEF4 /* NVRepostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F047251B983AD10039FEF4 /* NVRepostCell.m */; };
 		84F066A21B95D1320037EF83 /* NVWallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A11B95D1320037EF83 /* NVWallVC.m */; };
 		84F066A51B95D7500037EF83 /* NVLikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F066A41B95D7500037EF83 /* NVLikes.m */; };
@@ -95,6 +96,7 @@
 		84EB34B81B9060F800C7E0AC /* _5__APIWithoutAccessTokenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5__APIWithoutAccessTokenTests.m; sourceTree = "<group>"; };
 		84EBDEF81B99093500AD9460 /* NVGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVGroup.h; sourceTree = "<group>"; };
 		84EBDEF91B99093500AD9460 /* NVGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVGroup.m; sourceTree = "<group>"; };
+		84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repostUnderPostIcon.png; sourceTree = "<group>"; };
 		84F047241B983AD10039FEF4 /* NVRepostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVRepostCell.h; sourceTree = "<group>"; };
 		84F047251B983AD10039FEF4 /* NVRepostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVRepostCell.m; sourceTree = "<group>"; };
 		84F066A01B95D1320037EF83 /* NVWallVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallVC.h; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				84FD6D7A1B99FAC300558FE2 /* pauseAudio.jpg */,
 				84EA58A01B9B470700AF0386 /* likeIcon.png */,
 				84FD6D7B1B99FAC300558FE2 /* playAudio.jpg */,
+				84EBFFE61BA0B18E0083DDFA /* repostUnderPostIcon.png */,
 				847508BE1B9A6144006A486B /* repostIcon.png */,
 				84FD6D7C1B99FAC300558FE2 /* Копия audioIcons.jpg */,
 			);
@@ -382,6 +385,7 @@
 			files = (
 				84EB34A81B9060F800C7E0AC /* Main.storyboard in Resources */,
 				84FD6D7D1B99FAC300558FE2 /* docIcon.png in Resources */,
+				84EBFFE71BA0B18E0083DDFA /* repostUnderPostIcon.png in Resources */,
 				84EB34AD1B9060F800C7E0AC /* LaunchScreen.xib in Resources */,
 				84FD6D7E1B99FAC300558FE2 /* pauseAudio.jpg in Resources */,
 				84EA58A11B9B470700AF0386 /* likeIcon.png in Resources */,

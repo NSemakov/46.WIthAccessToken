@@ -136,8 +136,12 @@ static const NSInteger numberOfWallPostsToGet=5;
     }
     if (indexPath.row ==[wallPost.arrayOfDataNames count]) {
         NVLikeRepostComCell* cell=[self.endCells objectForKey:[self keyForIndexPath:indexPath]];
-        cell.imageLike.image=[UIImage imageNamed:@"likeIcon.png"];
-        cell.labelLikeCount.text=[NSString stringWithFormat:@"%d",3];
+        //cell.imageLike.image=[UIImage imageNamed:@"likeIcon.png"];
+        //cell.labelLikeCount.text=@"";//[NSString stringWithFormat:@"%d",3];
+        [cell.buttonLike setTitle:@"sldk" forState:UIControlStateNormal|UIControlStateHighlighted];
+        //[cell.buttonLike setBackgroundImage:<#(UIImage *)#> forState:<#(UIControlState)#>]
+        cell.imageRepost.image=[UIImage imageNamed:@"repostUnderPostIcon.png"];
+        cell.labelRepostCount.text=@"";
         return cell;
     }
     
@@ -152,7 +156,7 @@ static const NSInteger numberOfWallPostsToGet=5;
         if ([self.attachmentCells objectForKey:indexPath]) {
             cell=[self.attachmentCells objectForKey:indexPath];
         } else {
-            NSLog(@"attach %@",wallPost.attachments);
+            //NSLog(@"attach %@",wallPost.attachments);
             cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
             [self.attachmentCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
