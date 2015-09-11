@@ -16,6 +16,7 @@
 #import "NVMainTableHeader.h"
 #import "NVLikes.h"
 #import "NVLikeRepostComCell.h"
+#import "NVBigPhotoVC.h"
 #import "NVGroup.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
@@ -160,15 +161,18 @@ static const NSInteger numberOfWallPostsToGet=5;
         } else {
             //NSLog(@"attach %@",wallPost.attachments);
             cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
+            cell.delegate=self;
             [self.attachmentCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
         return CGRectGetMinY(cell.lastFrame);
     } else if ([[wallPost.arrayOfDataNames objectAtIndex:indexPath.row] isEqualToString:@"repost"]){
         NVRepostCell* cell=nil;
         if ([self.repostCells objectForKey:[self keyForIndexPath:indexPath]]) {
+            
             cell=[self.repostCells objectForKey:[self keyForIndexPath:indexPath]];
         } else {
             cell=[[NVRepostCell alloc]initWithWallPost:wallPost.repost andParentRect:self.tableView];
+            cell.delegate=self;
             [self.repostCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
         return CGRectGetHeight(cell.tableView.bounds);
@@ -224,6 +228,17 @@ static const NSInteger numberOfWallPostsToGet=5;
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
     if (section==[self.arrayOfWallPosts count]-1) {
         [self refreshTable];
+    }
+}
+#pragma mark - NVShowPhotoProtocol
+- (void) performSegueShowPhoto:(id) sender currentPhoto:(UIImage *)currentPhoto{
+    [self performSegueWithIdentifier:@"showPhotos" sender:currentPhoto];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"showPhotos"]) {
+        NVBigPhotoVC *vc=segue.destinationViewController;
+        vc.currentPhoto=(UIImage*)sender;
     }
 }
 /*

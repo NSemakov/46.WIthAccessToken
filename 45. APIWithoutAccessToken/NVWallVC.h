@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "NVUser.h"
+#import "NVShowPhotoProtocol.h"
 @class NVAttachmentCell;
 @class NVRepostCell;
-@interface NVWallVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+
+@interface NVWallVC : UIViewController <UITableViewDataSource, UITableViewDelegate,NVShowPhotoProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NVUser* person;
 @property (strong,nonatomic) NSMutableArray* arrayOfWallPosts;

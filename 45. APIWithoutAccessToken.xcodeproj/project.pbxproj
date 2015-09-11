@@ -19,6 +19,7 @@
 		84B3655B1B91E5BA003E33C2 /* NVSubcription.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655A1B91E5BA003E33C2 /* NVSubcription.m */; };
 		84B3655E1B91E773003E33C2 /* NVSubscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */; };
 		84E36C8F1B920F7400AC1F56 /* NVWallPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E36C8E1B920F7400AC1F56 /* NVWallPost.m */; };
+		84E7B09F1BA23A81001E7E25 /* NVBigPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B09E1BA23A81001E7E25 /* NVBigPhotoVC.m */; };
 		84EA589F1B9B407B00AF0386 /* NVLikeRepostComCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA589E1B9B407B00AF0386 /* NVLikeRepostComCell.m */; };
 		84EB349F1B9060F800C7E0AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB349E1B9060F800C7E0AC /* main.m */; };
 		84EB34A21B9060F800C7E0AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB34A11B9060F800C7E0AC /* AppDelegate.m */; };
@@ -79,6 +80,9 @@
 		84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSubscriptionVC.m; sourceTree = "<group>"; };
 		84E36C8D1B920F7400AC1F56 /* NVWallPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVWallPost.h; sourceTree = "<group>"; };
 		84E36C8E1B920F7400AC1F56 /* NVWallPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVWallPost.m; sourceTree = "<group>"; };
+		84E7B09D1BA23A81001E7E25 /* NVBigPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVBigPhotoVC.h; sourceTree = "<group>"; };
+		84E7B09E1BA23A81001E7E25 /* NVBigPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVBigPhotoVC.m; sourceTree = "<group>"; };
+		84E7B0A01BA23CA3001E7E25 /* NVShowPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVShowPhotoProtocol.h; sourceTree = "<group>"; };
 		84EA589D1B9B407B00AF0386 /* NVLikeRepostComCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLikeRepostComCell.h; sourceTree = "<group>"; };
 		84EA589E1B9B407B00AF0386 /* NVLikeRepostComCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLikeRepostComCell.m; sourceTree = "<group>"; };
 		84EB34991B9060F700C7E0AC /* 45. APIWithoutAccessToken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "45. APIWithoutAccessToken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,7 @@
 			children = (
 				84EB34A31B9060F800C7E0AC /* NVFriendsVC.h */,
 				84EB34A41B9060F800C7E0AC /* NVFriendsVC.m */,
+				84E7B0A01BA23CA3001E7E25 /* NVShowPhotoProtocol.h */,
 				847AD3721B906E8700581426 /* NVLoginVC.h */,
 				847AD3731B906E8700581426 /* NVLoginVC.m */,
 				847AD37B1B90AA3B00581426 /* NVDetailInfoVC.h */,
@@ -180,6 +185,8 @@
 				84B365571B91D2EE003E33C2 /* NVFollowersVC.m */,
 				84F066A01B95D1320037EF83 /* NVWallVC.h */,
 				84F066A11B95D1320037EF83 /* NVWallVC.m */,
+				84E7B09D1BA23A81001E7E25 /* NVBigPhotoVC.h */,
+				84E7B09E1BA23A81001E7E25 /* NVBigPhotoVC.m */,
 				84B3655C1B91E773003E33C2 /* NVSubscriptionVC.h */,
 				84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */,
 				84FD6D811B99FADC00558FE2 /* Cells */,
@@ -455,6 +462,7 @@
 				84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */,
 				847AD3771B90753300581426 /* NVServerManager.m in Sources */,
 				847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */,
+				84E7B09F1BA23A81001E7E25 /* NVBigPhotoVC.m in Sources */,
 				847508C21B9A635F006A486B /* NVMainTableHeader.m in Sources */,
 				84F066A81B95E6010037EF83 /* NVWallHeaderCell.m in Sources */,
 				84F066A21B95D1320037EF83 /* NVWallVC.m in Sources */,

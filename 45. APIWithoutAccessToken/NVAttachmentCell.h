@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol NVShowPhotoProtocol;
 @interface NVAttachmentCell : UITableViewCell
 @property (strong,nonatomic) NSMutableArray* photos;
 @property (strong,nonatomic) NSMutableArray* audios;
@@ -16,4 +16,5 @@
 @property (assign,nonatomic) CGRect lastFrame;
 @property (assign,nonatomic) CGRect parentTableViewRect;
 - (instancetype)initWithAttachments:(NSArray*) att andParentRect:(CGRect) parentRect;
+@property (strong,nonatomic) id <NVShowPhotoProtocol> delegate;
 @end

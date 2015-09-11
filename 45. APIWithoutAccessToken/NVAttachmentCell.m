@@ -10,6 +10,8 @@
 #import "NVAudio.h"
 #import "NVPhoto.h"
 #import "NVDocument.h"
+#import "NVBigPhotoVC.h"
+#import "NVShowPhotoProtocol.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @implementation NVAttachmentCell
 
@@ -46,10 +48,22 @@
         }
         
         [self layoutAttachments];
+        UITapGestureRecognizer* tapGestureRec=[[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(actionShowImage:)];
+        [self addGestureRecognizer:tapGestureRec];
     }
     return self;
 }
-
+- (void) actionShowImage:(UITapGestureRecognizer*) tapGestureRec{
+    CGPoint touch=[tapGestureRec locationInView:self.contentView];
+    UIView* view=[self.contentView hitTest:touch withEvent:nil];
+    
+    if ([view isKindOfClass:[UIImageView class]]) {
+        UIImageView* imageView=(UIImageView*) view;
+        [self.delegate performSegueShowPhoto:self currentPhoto:imageView.image];
+        NSLog(@"view %@ delegate %@",imageView.image,NSStringFromClass([self.delegate class]) );
+    }
+        
+}
 - (void) layoutAttachments {
     self.lastFrame=CGRectZero;
     //adding photo
@@ -129,7 +143,8 @@
         view.frame=CGRectMake(CGRectGetMaxX(tempView.frame)+equalizingConstant, CGRectGetMinY(view.frame), CGRectGetWidth(view.frame), CGRectGetHeight(view.frame));
         view.frame =CGRectIntegral(view.frame);
         tempView.frame=view.frame;
-        [self addSubview:view];
+        view.userInteractionEnabled=YES;
+        [self.contentView addSubview:view];
     }
     //sorting array to get highest image to prevent intersection with next row
     [arrayOfImageViewsInRow sortUsingComparator:^NSComparisonResult(UIImageView* obj1, UIImageView* obj2) {
@@ -149,6 +164,7 @@
     CGRect audioRect=CGRectMake(8, CGRectGetMinY(self.lastFrame), 25, 25);
     UIImageView* view=[[UIImageView alloc]initWithFrame:audioRect];
     view.image=[UIImage imageNamed:@"playAudio.jpg"];
+    view.userInteractionEnabled=YES;
     //set artist label
     CGRect audioArtistRect=CGRectMake(CGRectGetMaxX(view.frame)+3, CGRectGetMinY(self.lastFrame), CGRectGetWidth(self.parentTableViewRect)-26-2, 12);
     UILabel* labelAudioArtist=[[UILabel alloc]initWithFrame:audioArtistRect];
@@ -172,10 +188,10 @@
     font = [UIFont systemFontOfSize:11.f];
     [labelAudioDuration setFont:font];
     
-    [self addSubview:view];
-    [self addSubview:labelAudioArtist];
-    [self addSubview:labelAudioTitle];
-    [self addSubview:labelAudioDuration];
+    [self.contentView addSubview:view];
+    [self.contentView addSubview:labelAudioArtist];
+    [self.contentView addSubview:labelAudioTitle];
+    [self.contentView addSubview:labelAudioDuration];
     
     self.lastFrame=CGRectMake(0, CGRectGetMaxY(view.frame)+5, 0, 0);//при переходе на следующую строку длина и ширина =0
 }
@@ -185,6 +201,7 @@
     CGRect documentRect=CGRectMake(8, CGRectGetMinY(self.lastFrame), 25, 25);
     UIImageView* view=[[UIImageView alloc]initWithFrame:documentRect];
     view.image=[UIImage imageNamed:@"docIcon.png"];
+    view.userInteractionEnabled=YES;
     //set artist label
     CGRect docTitleRect=CGRectMake(CGRectGetMaxX(view.frame)+3, CGRectGetMinY(self.lastFrame), CGRectGetWidth(self.parentTableViewRect)-26-2, 12);
     UILabel* labelDocTitle=[[UILabel alloc]initWithFrame:docTitleRect];
@@ -199,9 +216,9 @@
     font = [UIFont systemFontOfSize:11.f];
     [labelDocSubtitle setFont:font];
     
-    [self addSubview:view];
-    [self addSubview:labelDocTitle];
-    [self addSubview:labelDocSubtitle];
+    [self.contentView addSubview:view];
+    [self.contentView addSubview:labelDocTitle];
+    [self.contentView addSubview:labelDocSubtitle];
     
     self.lastFrame=CGRectMake(0, CGRectGetMaxY(view.frame)+5, 0, 0);//при переходе на следующую строку длина и ширина =0
 }

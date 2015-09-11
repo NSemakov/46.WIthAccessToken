@@ -7,6 +7,7 @@
 //
 
 #import "NVRepostCell.h"
+#import "NVWallVC.h"
 #import "NVAttachmentCell.h"
 #import "NVWallHeaderCell.h"
 #import "NVWallPost.h"
@@ -106,6 +107,7 @@
             cell=[self.attachmentCells objectForKey:indexPath];
         } else {
             cell=[[NVAttachmentCell alloc]initWithAttachments:wallPost.attachments andParentRect:self.tableView.bounds];
+            cell.delegate=self.delegate;
             [self.attachmentCells setObject:cell forKey:[self keyForIndexPath:indexPath]];
         }
        
