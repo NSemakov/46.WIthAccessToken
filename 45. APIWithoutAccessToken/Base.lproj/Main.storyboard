@@ -233,22 +233,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b1B-O9-fF0" id="TFx-Qh-g5C">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-fw-FSr">
-                                                    <rect key="frame" x="382" y="10" width="101" height="35"/>
-                                                    <color key="backgroundColor" red="0.85391019570707072" green="0.85391019570707072" blue="0.85391019570707072" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
-                                                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Button" image="likeIcon.png">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="likeIcon.png"/>
-                                                    <state key="highlighted" image="likeIcon.png"/>
-                                                    <connections>
-                                                        <action selector="actionLike:" destination="b1B-O9-fF0" eventType="touchUpInside" id="YYC-9s-Z5I"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ass-oi-sfW">
                                                     <rect key="frame" x="8" y="10" width="101" height="35"/>
                                                     <color key="backgroundColor" red="0.85391019570000004" green="0.85391019570000004" blue="0.85391019570000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -279,6 +263,22 @@
                                                         <action selector="actionRepost:" destination="b1B-O9-fF0" eventType="touchUpInside" id="Wjf-9v-NBq"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-fw-FSr">
+                                                    <rect key="frame" x="382" y="10" width="101" height="35"/>
+                                                    <color key="backgroundColor" red="0.85391019570707072" green="0.85391019570707072" blue="0.85391019570707072" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="20" maxY="5"/>
+                                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-6" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="likeIcon.png">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="likeIcon.png"/>
+                                                    <state key="highlighted" image="likeIcon.png"/>
+                                                    <connections>
+                                                        <action selector="actionLike:" destination="b1B-O9-fF0" eventType="touchUpInside" id="YYC-9s-Z5I"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7nC-fw-FSr" firstAttribute="top" secondItem="TFx-Qh-g5C" secondAttribute="top" constant="10" id="AnA-iG-GnA"/>
@@ -287,9 +287,9 @@
                                                 <constraint firstItem="7nC-fw-FSr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ass-oi-sfW" secondAttribute="trailing" constant="1" id="QjZ-a3-xy9"/>
                                                 <constraint firstAttribute="bottom" secondItem="6il-6P-ZnV" secondAttribute="bottom" constant="10" id="WFE-dQ-KCs"/>
                                                 <constraint firstItem="ass-oi-sfW" firstAttribute="top" secondItem="TFx-Qh-g5C" secondAttribute="top" constant="10" id="cY6-io-ZOH"/>
-                                                <constraint firstItem="ass-oi-sfW" firstAttribute="leading" secondItem="TFx-Qh-g5C" secondAttribute="leading" constant="8" id="eFB-wZ-h2K"/>
                                                 <constraint firstAttribute="bottom" secondItem="ass-oi-sfW" secondAttribute="bottom" constant="10" id="f7S-1y-doA"/>
                                                 <constraint firstAttribute="bottom" secondItem="7nC-fw-FSr" secondAttribute="bottom" constant="10" id="p6A-OQ-kim"/>
+                                                <constraint firstItem="ass-oi-sfW" firstAttribute="leading" secondItem="TFx-Qh-g5C" secondAttribute="leadingMargin" id="pFd-AE-7h2"/>
                                                 <constraint firstItem="6il-6P-ZnV" firstAttribute="top" secondItem="TFx-Qh-g5C" secondAttribute="top" constant="10" id="tob-Jq-ucG"/>
                                             </constraints>
                                         </tableViewCellContentView>

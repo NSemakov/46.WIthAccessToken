@@ -54,9 +54,9 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@ code %d",error,operation.error.code);
+        NSLog(@"error %@ code %ld",error,operation.error.code);
         if (onFailure) {
-            NSString* returnString=[NSString stringWithFormat:@"error %@ code %d",error,operation.error.code];
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
             onFailure(returnString);
         }
     }];
@@ -94,9 +94,9 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@ code %d",error,operation.error.code);
+        NSLog(@"error %@ code %ld",error,operation.error.code);
         if (onFailure) {
-            NSString* returnString=[NSString stringWithFormat:@"error %@ code %d",error,operation.error.code];
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
             onFailure(returnString);
         }
     }];
@@ -134,9 +134,9 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@ code %d",error,operation.error.code);
+        NSLog(@"error %@ code %ld",error,operation.error.code);
         if (onFailure) {
-            NSString* returnString=[NSString stringWithFormat:@"error %@ code %d",error,operation.error.code];
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
             onFailure(returnString);
         }
     }];
@@ -167,9 +167,9 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@ code %d",error,operation.error.code);
+        NSLog(@"error %@ code %ld",error,operation.error.code);
         if (onFailure) {
-            NSString* returnString=[NSString stringWithFormat:@"error %@ code %d",error,operation.error.code];
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
             onFailure(returnString);
         }
     }];
@@ -206,9 +206,9 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error %@ code %d",error,operation.error.code);
+        NSLog(@"error %@ code %ld",error,operation.error.code);
         if (onFailure) {
-            NSString* returnString=[NSString stringWithFormat:@"error %@ code %d",error,operation.error.code];
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
             onFailure(returnString);
         }
     }];
