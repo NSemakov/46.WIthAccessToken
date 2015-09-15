@@ -10,7 +10,9 @@
 #import "NVUser.h"
 #import "NVServerManager.h"
 #import "NVDetailInfoVC.h"
+#import "NVLoginVC.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+
 @interface NVFriendsVC ()
 
 @end
@@ -21,13 +23,17 @@ static const NSInteger numberOfFriendsToGet=20;
     [super viewDidLoad];
 
     self.arrayOfFriends=[[NSMutableArray alloc]init];
-    [self refreshTable];
+    [[NVServerManager sharedManager]authorizeUser:^(NVUser *user) {
+        NSLog(@"%@ %@",user.firstName,user.lastName);
+    }];
+   // [self refreshTable];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (void) refreshTable{
         [[NVServerManager sharedManager] getFriendsFromServerCount:numberOfFriendsToGet withOffset:[self.arrayOfFriends count] onSuccess:^(NSArray *friends) {
 

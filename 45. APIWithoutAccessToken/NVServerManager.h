@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class NVUser;
+@class NVAccessToken;
 @interface NVServerManager : NSObject
+@property (strong,nonatomic) NVAccessToken* accessToken;
+@property (strong,nonatomic) NVUser* currentUser;
 +(NVServerManager*) sharedManager;
 -(void) getFriendsFromServerCount:(NSInteger) count
                        withOffset:(NSInteger) offset
@@ -30,4 +33,9 @@
                             withOffset:(NSInteger) offset
                              onSuccess:(void(^)(NSArray* wallPosts)) onSuccess
                              onFailure:(void(^)(NSString* error)) onFailure;
+-(void) getUserFromServer:(NSString*) userId
+                onSuccess:(void(^)(NVUser * user)) onSuccess
+                onFailure:(void(^)(NSString* error)) onFailure;
+- (void) authorizeUser:(void(^)(NVUser* user))completion;
+
 @end

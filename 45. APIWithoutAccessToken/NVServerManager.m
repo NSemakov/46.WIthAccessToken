@@ -10,6 +10,8 @@
 #import "NVUser.h"
 #import "NVWallPost.h"
 #import "NVSubcription.h"
+#import "NVAccessToken.h"
+#import "NVLoginVC.h"
 #import <AFNetworking/AFNetworking.h>
 @implementation NVServerManager
 
@@ -212,6 +214,62 @@
             onFailure(returnString);
         }
     }];
+    
+}
+-(void) getUserFromServer:(NSString*) userId
+                             onSuccess:(void(^)(NVUser * user)) onSuccess
+                             onFailure:(void(^)(NSString* error)) onFailure{
+    
+    NSURL* baseURL=[NSURL URLWithString:@"https://api.vk.com/method"];
+    AFHTTPRequestOperationManager * manager =[[AFHTTPRequestOperationManager alloc]initWithBaseURL:baseURL];
+    NSDictionary* dictionary=[NSDictionary dictionaryWithObjectsAndKeys:
+                              userId,  @"user_ids",
+                              @(5.37),@"v",
+                              @"ru",@"lang",
+                              nil];
+    
+    [manager GET:@"users.get" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"coming %@",responseObject);
+        
+        for (NSDictionary* obj in [responseObject objectForKey:@"response"] ){
+            NVUser* currentUser=[[NVUser alloc]initWithDictionary:obj];
+           if (onSuccess) {
+               onSuccess(currentUser);
+           }
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error %@ code %ld",error,operation.error.code);
+        if (onFailure) {
+            NSString* returnString=[NSString stringWithFormat:@"error %@ code %ld",error,operation.error.code];
+            onFailure(returnString);
+        }
+    }];
+    
+}
+- (void) authorizeUser:(void(^)(NVUser* user))completion  {
+    UIStoryboard* storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    NVLoginVC* loginVC=[storyboard instantiateViewControllerWithIdentifier:@"NVLoginVC"];
+    
+    loginVC.completionBlock=^(NVAccessToken* token){
+        self.accessToken=token;
+        
+        if (token) {
+            [self getUserFromServer:token.userId onSuccess:^(NVUser *user) {
+                if (completion) {
+                   completion(user);
+                }
+                
+            } onFailure:^(NSString *error) {
+                completion(nil);
+            }];
+        } else {
+            completion(nil);
+        }
+    };
+    [[[[[UIApplication sharedApplication]windows]firstObject]rootViewController] presentViewController:loginVC animated:YES completion:nil];
+    
     
 }
 @end

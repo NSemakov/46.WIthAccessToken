@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 @class NVUser;
-typedef void(^CompletionBlock)(NVUser* friend);
+@class NVAccessToken;
+typedef void(^NVCompletionBlock)(NVAccessToken* accessToken);
 
-@interface NVLoginVC : UIViewController
-@property (strong,nonatomic) UIWebView* webView;
+@interface NVLoginVC : UIViewController <UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (copy,nonatomic) NVCompletionBlock completionBlock;
+- (IBAction)actionClose:(UIBarButtonItem *)sender;
 
-- (instancetype)initWithCompletionBlock:(CompletionBlock) completionBlock;
+
+- (instancetype)initWithCompletionBlock:(NVCompletionBlock) completionBlock;
 @end
