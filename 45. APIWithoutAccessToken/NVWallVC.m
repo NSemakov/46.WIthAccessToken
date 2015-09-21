@@ -18,6 +18,7 @@
 #import "NVLikeRepostComCell.h"
 #import "NVBigPhotoVC.h"
 #import "NVGroup.h"
+#import "NVAddPostVC.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVWallVC ()
 
@@ -239,7 +240,11 @@ static const NSInteger numberOfWallPostsToGet=5;
     if ([segue.identifier isEqualToString:@"showPhotos"]) {
         NVBigPhotoVC *vc=segue.destinationViewController;
         vc.currentPhoto=(UIImage*)sender;
+    } else if ([segue.identifier isEqualToString:@"addPost"]) {
+        NVAddPostVC *vc=segue.destinationViewController;
+        vc.person=self.person;
     }
+    
 }
 /*
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{

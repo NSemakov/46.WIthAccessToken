@@ -47,7 +47,7 @@
                 "scope=notify,friends,photos,audio,video,docs,notes,pages,status,wall,groups,messages,email&"
                 "response_type=token&"
                 "v=5.37&"
-                "revoke=1";
+                /*"revoke=1"*/;
     
     NSURL* url=[NSURL URLWithString:string];
 

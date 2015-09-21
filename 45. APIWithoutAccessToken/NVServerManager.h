@@ -37,5 +37,9 @@
                 onSuccess:(void(^)(NVUser * user)) onSuccess
                 onFailure:(void(^)(NSString* error)) onFailure;
 - (void) authorizeUser:(void(^)(NVUser* user))completion;
-
+- (void)postWallCreateCommentText:(NSString*)text
+                            image:(NSArray *)image
+                      onGroupWall:(NSString*)groupID
+                        onSuccess:(void(^)(id result))success
+                        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 @end

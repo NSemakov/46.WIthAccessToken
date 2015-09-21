@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class NVUser;
 @interface NVFriendsVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NSMutableArray* arrayOfFriends;
 

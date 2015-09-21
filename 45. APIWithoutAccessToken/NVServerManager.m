@@ -32,8 +32,9 @@
     
     NSURL* baseURL=[NSURL URLWithString:@"https://api.vk.com/method"];
     AFHTTPRequestOperationManager * manager =[[AFHTTPRequestOperationManager alloc]initWithBaseURL:baseURL];
+   
     NSDictionary* dictionary=[NSDictionary dictionaryWithObjectsAndKeys:
-                              @(1814388),  @"user_id",
+                              self.currentUser.userId,  @"user_id",
                               @"hints", @"order",
                               @(count),@"count",
                               @(offset),@"offset",
@@ -233,6 +234,7 @@
         
         for (NSDictionary* obj in [responseObject objectForKey:@"response"] ){
             NVUser* currentUser=[[NVUser alloc]initWithDictionary:obj];
+            self.currentUser=currentUser;
            if (onSuccess) {
                onSuccess(currentUser);
            }
@@ -257,6 +259,7 @@
         
         if (token) {
             [self getUserFromServer:token.userId onSuccess:^(NVUser *user) {
+                
                 if (completion) {
                    completion(user);
                 }
@@ -270,6 +273,132 @@
     };
     [[[[[UIApplication sharedApplication]windows]firstObject]rootViewController] presentViewController:loginVC animated:YES completion:nil];
     
+    
+}
+
+- (void)postWallCreateCommentText:(NSString*)text
+                            image:(NSArray *)image
+                      onGroupWall:(NSString*)groupID
+                        onSuccess:(void(^)(id result))success
+                        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
+    
+    NSString *idGroup = [NSString stringWithFormat:@"%@",groupID];
+    
+//    if (![idGroup hasPrefix:@"-"]) {
+//        idGroup = [@"-" stringByAppendingString:idGroup];
+//    }
+    NSURL* baseURL=[NSURL URLWithString:@"https://api.vk.com/method"];
+        AFHTTPRequestOperationManager * manager =[[AFHTTPRequestOperationManager alloc]initWithBaseURL:baseURL];
+    if ([image count]>0) {
+        
+        
+        NSDictionary *paramDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         groupID,@"user_id",@"5.37",@"v",self.accessToken.accessToken,@"access_token", nil];
+        
+        
+        
+        [manager GET:@"photos.getWallUploadServer" parameters:paramDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON photos.getWallUploadServer: %@", responseObject);
+            
+            NSDictionary *objects = [responseObject objectForKey:@"response"];
+            
+            NSString *upload_url = [objects objectForKey:@"upload_url"];
+            NSString *user_id = [objects objectForKey:@"user_id"];
+            
+            AFHTTPRequestOperationManager *manager2= [AFHTTPRequestOperationManager manager];
+            manager2.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+            
+            [manager2 POST:upload_url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                
+                for (int i = 0; i < [image count]; i++) {
+                    UIImage *img = [image objectAtIndex:i];
+                    NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+                    [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i] fileName:[NSString stringWithFormat:@"file%d.png",i] mimeType:@"image/jpeg"];
+                }
+                
+            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSLog(@"Success POST:upload: %@", responseObject);
+                
+                NSString *hash =[responseObject objectForKey:@"hash"] ;
+                NSString *photo = [responseObject objectForKey:@"photo"] ;
+                NSString *server = [responseObject objectForKey:@"server"];
+                
+                
+                NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:user_id,@"user_id",
+               /*user_id,@"group_id",*/
+                                       server,@"server",photo,@"photo",hash,@"hash",@"5.37",@"v",self.accessToken.accessToken,@"access_token", nil];
+                
+                [manager GET:@"photos.saveWallPhoto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    NSLog(@"photos.saveWallPhoto: %@", responseObject);
+                    
+                    NSArray *objects = [responseObject objectForKey:@"response"];
+                    
+                    NSMutableString *attachments = [NSMutableString string];
+                    
+                    for (NSDictionary *dict in objects) {
+                        
+                        NSString *owner_id = [dict objectForKey:@"owner_id"];
+                        NSString *media_id = [dict objectForKey:@"id"];
+                        
+                        [attachments appendString:[NSString stringWithFormat:@"photo%@_%@,",owner_id,media_id]];
+                        
+                    }
+                    
+                    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:idGroup,@"owner_id",text,@"message",attachments,@"attachments",self.accessToken.accessToken, @"access_token", nil];
+                    
+                    [manager POST:@"wall.post" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
+                        
+                        NSLog(@"JSON: %@", responseObject);
+                        
+                        if (success) {
+                            success(responseObject);
+                        }
+                        
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        
+                        if (failure) {
+                            failure(error, operation.response.statusCode);
+                        }
+                    }];
+                    
+                    
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                }];
+                
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+        
+        
+        
+    } else {
+        
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:idGroup,@"owner_id",text,@"message",self.accessToken.accessToken, @"access_token", nil];
+        
+        [manager POST:@"wall.post" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
+            
+            NSLog(@"JSON: %@", responseObject);
+            
+            if (success) {
+                success(responseObject);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            if (failure) {
+                failure(error, operation.response.statusCode);
+            }
+        }];
+    }
     
 }
 @end

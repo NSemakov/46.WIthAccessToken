@@ -23,8 +23,10 @@ static const NSInteger numberOfFriendsToGet=20;
     [super viewDidLoad];
 
     self.arrayOfFriends=[[NSMutableArray alloc]init];
+    __weak NVFriendsVC *weakSelf=self;
     [[NVServerManager sharedManager]authorizeUser:^(NVUser *user) {
         NSLog(@"%@ %@",user.firstName,user.lastName);
+        [weakSelf refreshTable];
     }];
    // [self refreshTable];
 }
