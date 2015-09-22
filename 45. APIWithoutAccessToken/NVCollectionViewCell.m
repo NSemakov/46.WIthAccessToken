@@ -10,4 +10,7 @@
 
 @implementation NVCollectionViewCell
 
+- (IBAction)actionDeleteImage:(UIButton *)sender {
+    [self.delegate removeImageFromSelected:self];
+}
 @end

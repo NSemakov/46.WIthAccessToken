@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol NVCollectionViewCellProtocol;
 @interface NVCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *actionDeleteImage;
+- (IBAction)actionDeleteImage:(UIButton *)sender;
 
+@property (weak,nonatomic) id<NVCollectionViewCellProtocol> delegate;
+@end
+
+@protocol NVCollectionViewCellProtocol
+@required
+- (void) removeImageFromSelected:(NVCollectionViewCell*) cell;
 @end

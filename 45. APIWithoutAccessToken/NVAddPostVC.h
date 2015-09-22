@@ -11,8 +11,9 @@
 #import "RBImagePickerDelegate.h"
 #import "RBImagePickerDataSource.h"
 #import "NVUser.h"
+@protocol NVCollectionViewCellProtocol;
 @class RBImagePickerController;
-@interface NVAddPostVC : UIViewController <UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,RBImagePickerDelegate, UINavigationControllerDelegate,RBImagePickerDataSource>
+@interface NVAddPostVC : UIViewController <UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,RBImagePickerDelegate, UINavigationControllerDelegate,RBImagePickerDataSource,NVCollectionViewCellProtocol>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong,nonatomic) NVUser* person;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -23,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthOfTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthOfCollectionView;
 - (IBAction)actionAddPostToWall:(UIBarButtonItem *)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceFromBottom;
 
 @end

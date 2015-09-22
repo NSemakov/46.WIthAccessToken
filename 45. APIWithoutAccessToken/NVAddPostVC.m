@@ -24,10 +24,34 @@ const NSInteger maxNumberOfImagesForUpload=6;
     self.widthOfScrollView.constant=CGRectGetWidth(self.view.bounds);;
     self.widthOfCollectionView.constant=CGRectGetWidth(self.view.bounds);
     self.widthOfTextView.constant=CGRectGetWidth(self.view.bounds);
-    //
-    // Do any additional setup after loading the view.
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void) willShowKeyBoard:(NSNotification *)notification  {
+    [self.view layoutIfNeeded];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] valueForKey: UIKeyboardAnimationCurveUserInfoKey] intValue];
+    NSTimeInterval animationDuration = [[[notification userInfo] valueForKey: UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    //NSLog(@"duration %f",animationDuration);
+    CGRect keyboardRect = [(NSValue *)[[notification userInfo] objectForKey: UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    self.spaceFromBottom.constant=CGRectGetHeight(keyboardRect);
+    [UIView animateWithDuration:animationDuration delay:0 options:(int)animationCurve animations:^{
+        [self.view layoutIfNeeded];// Called on parent view
+    } completion:nil];
+
+}
+- (void) willHideKeyBoard:(NSNotification *)notification  {
+    [self.view layoutIfNeeded];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] valueForKey: UIKeyboardAnimationCurveUserInfoKey] intValue];
+    NSTimeInterval animationDuration = [[[notification userInfo] valueForKey: UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    //CGRect keyboardRect = [(NSValue *)[[notification userInfo] objectForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    self.spaceFromBottom.constant=0;
+    [UIView animateWithDuration:animationDuration delay:0 options:(int)animationCurve animations:^{
+        [self.view layoutIfNeeded];// Called on parent view
+    } completion:nil];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -45,7 +69,7 @@ const NSInteger maxNumberOfImagesForUpload=6;
     NVCollectionViewCell* cell=[self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     //NSString* imagePath=[(NSURL*)[self.arrayOfSelectedImages objectAtIndex:indexPath.row] absoluteString];
     cell.imageView.image=[self.arrayOfSelectedImages objectAtIndex:indexPath.row];//[UIImage imageWithContentsOfFile:imagePath];
-    
+    cell.delegate=self;
     return cell;
 }
 #pragma mark -UICollectionViewDelegate
@@ -58,7 +82,7 @@ const NSInteger maxNumberOfImagesForUpload=6;
     [self.collectionView reloadData];
 }
 -(void)imagePickerControllerDidCancel:(RBImagePickerController *)imagePicker{
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - RBImagePickerDataSource
 
@@ -84,6 +108,15 @@ const NSInteger maxNumberOfImagesForUpload=6;
         NSLog(@"error %@",[error description]);
     }];
     [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark - NVCollectionViewCellProtocol
+-(void)removeImageFromSelected:(NVCollectionViewCell *)cell{
+    NSIndexPath* indexPath=[self.collectionView indexPathForCell:cell];
+    [self.arrayOfSelectedImages removeObjectAtIndex:indexPath.row];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+}
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
 

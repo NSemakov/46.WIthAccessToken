@@ -388,17 +388,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54X-VO-3Rw">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Add" id="mMd-WX-rVV">
-                                        <connections>
-                                            <action selector="actionAddPostToWall:" destination="mj3-hQ-Mva" id="qvy-sN-aqm"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="1" green="0.13521853414670248" blue="0.13398720752400672" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1m-8b-ULi">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
@@ -445,6 +434,9 @@
                                                             <state key="normal" title="Del">
                                                                 <color key="titleColor" red="0.97618609089999997" green="0.9819859178" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="actionDeleteImage:" destination="seI-Z8-323" eventType="touchUpInside" id="cML-AS-feC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -456,7 +448,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="bok-lm-nBW" secondAttribute="trailing" id="Z7p-ET-y3R"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="actionDeleteImage" destination="wd8-Zm-C1v" id="yDZ-Hl-g2i"/>
                                                     <outlet property="imageView" destination="bok-lm-nBW" id="tX2-6q-j9W"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -479,13 +470,27 @@
                                     <constraint firstItem="TBk-GK-JHn" firstAttribute="leading" secondItem="E1m-8b-ULi" secondAttribute="leading" id="z9f-KO-RYp"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54X-VO-3Rw">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0wb-lB-pC9"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Add" id="mMd-WX-rVV">
+                                        <connections>
+                                            <action selector="actionAddPostToWall:" destination="mj3-hQ-Mva" id="qvy-sN-aqm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="1" green="0.13521853414670248" blue="0.13398720752400672" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="54X-VO-3Rw" firstAttribute="top" secondItem="E1m-8b-ULi" secondAttribute="bottom" id="FqJ-5C-1KM"/>
                             <constraint firstItem="dua-6p-KQn" firstAttribute="top" secondItem="54X-VO-3Rw" secondAttribute="bottom" id="Juo-Y1-rVL"/>
                             <constraint firstAttribute="trailing" secondItem="E1m-8b-ULi" secondAttribute="trailing" id="Oqa-Lo-EH3"/>
                             <constraint firstItem="E1m-8b-ULi" firstAttribute="leading" secondItem="gnG-h8-V0g" secondAttribute="leading" id="PbH-LD-AU4"/>
-                            <constraint firstItem="dua-6p-KQn" firstAttribute="top" secondItem="E1m-8b-ULi" secondAttribute="bottom" constant="44" id="QRl-uZ-5Fh"/>
                             <constraint firstItem="54X-VO-3Rw" firstAttribute="leading" secondItem="gnG-h8-V0g" secondAttribute="leading" id="TMf-oI-wPV"/>
                             <constraint firstItem="E1m-8b-ULi" firstAttribute="top" secondItem="49x-pd-xU8" secondAttribute="bottom" id="plU-dP-4Eu"/>
                             <constraint firstAttribute="trailing" secondItem="54X-VO-3Rw" secondAttribute="trailing" id="y8O-wA-UKK"/>
@@ -502,6 +507,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="vCf-6R-Tb8" id="9Tm-ho-VHO"/>
+                        <outlet property="spaceFromBottom" destination="Juo-Y1-rVL" id="EuD-Xb-Hzi"/>
                         <outlet property="textView" destination="TBk-GK-JHn" id="EfQ-g8-3Zw"/>
                         <outlet property="widthOfCollectionView" destination="jHR-cQ-fDF" id="POO-7K-wL4"/>
                         <outlet property="widthOfScrollView" destination="gbu-3D-PUj" id="QKI-gL-v0k"/>
@@ -542,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGV-qZ-c8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="-675"/>
+            <point key="canvasLocation" x="2407" y="-562"/>
         </scene>
         <!--SubscriptionVC-->
         <scene sceneID="mps-kY-JWb">
