@@ -220,8 +220,8 @@
 				84E7B09D1BA23A81001E7E25 /* NVBigPhotoVC.h */,
 				84E7B09E1BA23A81001E7E25 /* NVBigPhotoVC.m */,
 				84B3655C1B91E773003E33C2 /* NVSubscriptionVC.h */,
-				84F103EA1BAF4E82004D7B20 /* CellsInCollectionView */,
 				84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */,
+				84F103EA1BAF4E82004D7B20 /* CellsInCollectionView */,
 				84FD6D811B99FADC00558FE2 /* CellsInTableView */,
 			);
 			name = ViewControllers;

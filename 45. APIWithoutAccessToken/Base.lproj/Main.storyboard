@@ -173,7 +173,7 @@
         <!--WallVC-->
         <scene sceneID="0gg-wo-xFL">
             <objects>
-                <viewController id="hc0-Gv-mS6" customClass="NVWallVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NVWallVC" id="hc0-Gv-mS6" customClass="NVWallVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="alh-29-JfK"/>
                         <viewControllerLayoutGuide type="bottom" id="M5W-1O-yYc"/>
@@ -284,12 +284,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b1B-O9-fF0" id="TFx-Qh-g5C">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ass-oi-sfW">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ass-oi-sfW">
                                                     <rect key="frame" x="8" y="10" width="101" height="35"/>
                                                     <color key="backgroundColor" red="0.85391019570000004" green="0.85391019570000004" blue="0.85391019570000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
-                                                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="20" maxY="5"/>
+                                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-6" maxY="0.0"/>
                                                     <state key="normal" title="Button" image="comment.png">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,20 +298,6 @@
                                                     <state key="highlighted" image="comment.png"/>
                                                     <connections>
                                                         <action selector="actionShowComments:" destination="b1B-O9-fF0" eventType="touchUpInside" id="WBQ-3q-Ha4"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6il-6P-ZnV">
-                                                    <rect key="frame" x="491" y="10" width="101" height="35"/>
-                                                    <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
-                                                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Button" image="repostUnderPostIcon.png">
-                                                        <color key="titleColor" red="0.0078431372549019607" green="0.0078431372549019607" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="actionRepost:" destination="b1B-O9-fF0" eventType="touchUpInside" id="Wjf-9v-NBq"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-fw-FSr">
@@ -328,6 +314,20 @@
                                                     <state key="highlighted" image="likeIcon.png"/>
                                                     <connections>
                                                         <action selector="actionLike:" destination="b1B-O9-fF0" eventType="touchUpInside" id="YYC-9s-Z5I"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6il-6P-ZnV">
+                                                    <rect key="frame" x="491" y="10" width="101" height="35"/>
+                                                    <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="20" maxY="5"/>
+                                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="-6" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="repostUnderPostIcon.png">
+                                                        <color key="titleColor" red="0.0078431372549019607" green="0.0078431372549019607" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actionRepost:" destination="b1B-O9-fF0" eventType="touchUpInside" id="Wjf-9v-NBq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

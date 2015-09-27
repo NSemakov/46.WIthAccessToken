@@ -105,7 +105,7 @@
     }];
     
 }
--(void) getSubscriptionsFromServer:(NSInteger) userIds Count:(NSInteger) count
+-(void) getSubscriptionsFromServer:(NSString*) userIds Count:(NSInteger) count
                     withOffset:(NSInteger) offset
                      onSuccess:(void(^)(NSArray* subscriptions)) onSuccess
                      onFailure:(void(^)(NSString* error)) onFailure{
@@ -113,7 +113,7 @@
     NSURL* baseURL=[NSURL URLWithString:@"https://api.vk.com/method"];
     AFHTTPRequestOperationManager * manager =[[AFHTTPRequestOperationManager alloc]initWithBaseURL:baseURL];
     NSDictionary* dictionary=[NSDictionary dictionaryWithObjectsAndKeys:
-                              @(userIds),  @"user_id",
+                              userIds,  @"user_id",
                               @"hints", @"order",
                               @(count),@"count",
                               @(offset),@"offset",
@@ -178,7 +178,7 @@
     }];
 
 }
--(void) getWallPostsOfFriendFromServer:(NSInteger) owner_id
+-(void) getWallPostsOfFriendFromServer:(NSString*) owner_id
                                  Count:(NSInteger) count
                             withOffset:(NSInteger) offset
                           onSuccess:(void(^)(NSArray* wallPosts)) onSuccess
@@ -187,7 +187,7 @@
     NSURL* baseURL=[NSURL URLWithString:@"https://api.vk.com/method"];
     AFHTTPRequestOperationManager * manager =[[AFHTTPRequestOperationManager alloc]initWithBaseURL:baseURL];
     NSDictionary* dictionary=[NSDictionary dictionaryWithObjectsAndKeys:
-                              @(owner_id),  @"owner_id",
+                              owner_id,  @"owner_id",
                               @(count),@"count",
                               @(offset),@"offset",
                               @(1),@"extended",

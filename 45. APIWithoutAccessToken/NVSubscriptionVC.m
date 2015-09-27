@@ -9,6 +9,8 @@
 #import "NVSubscriptionVC.h"
 #import "NVServerManager.h"
 #import "NVUser.h"
+#import "NVGroup.h"
+#import "NVWallVC.h"
 #import "NVSubcription.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVSubscriptionVC ()
@@ -22,7 +24,7 @@ static const NSInteger numberOfSubscriptionsToGet=20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"Подписки";
-    self.tableView.allowsSelection = NO;
+    //self.tableView.allowsSelection = NO;
     self.arrayOfSubscription=[[NSMutableArray alloc]init];
     [self refreshTable];
 }
@@ -33,7 +35,7 @@ static const NSInteger numberOfSubscriptionsToGet=20;
 }
 
 - (void) refreshTable{
-    [[NVServerManager sharedManager] getSubscriptionsFromServer:[self.person.userId integerValue ] Count:numberOfSubscriptionsToGet withOffset:[self.arrayOfSubscription count] onSuccess:^(NSArray *subscriptions) {
+    [[NVServerManager sharedManager] getSubscriptionsFromServer:self.person.userId Count:numberOfSubscriptionsToGet withOffset:[self.arrayOfSubscription count] onSuccess:^(NSArray *subscriptions) {
         
         NSMutableArray* arrayOfIndexPaths=[NSMutableArray array];
         for (NSInteger i=[self.arrayOfSubscription count]; i<[self.arrayOfSubscription count]+[subscriptions count]; i++) {
@@ -66,7 +68,13 @@ static const NSInteger numberOfSubscriptionsToGet=20;
         
     }
     NVSubcription* subscription=[self.arrayOfSubscription objectAtIndex:indexPath.row];
-    cell.textLabel.text=[NSString stringWithFormat:@" %@",subscription.name];
+    NSString* textForLabel;
+    if (subscription.person) {
+        textForLabel=[NSString stringWithFormat:@" %@ %@",subscription.person.firstName,subscription.person.lastName];
+    } else {
+        textForLabel=[NSString stringWithFormat:@" %@",subscription.name];
+    }
+    cell.textLabel.text=textForLabel;
     NSURLRequest* request1=[NSURLRequest requestWithURL:subscription.photo50];
     //NSLog(@"photo %@",[subscription.photo50 path]);
     __weak UITableViewCell* weakCell=cell;
@@ -91,13 +99,21 @@ static const NSInteger numberOfSubscriptionsToGet=20;
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     [cell.imageView setImage:nil];
 }
-/*
+
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  [tableView deselectRowAtIndexPath:indexPath animated:YES];
- [self performSegueWithIdentifier:@"segueDetailPersonInfo" sender:indexPath];
- 
+ //[self performSegueWithIdentifier:@"segueDetailPersonInfo" sender:indexPath];
+     UIStoryboard* sb=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+     NVWallVC* vc=[sb instantiateViewControllerWithIdentifier:@"NVWallVC"];
+     if ([[[self arrayOfSubscription] objectAtIndex:indexPath.row] person]) {
+         vc.person=[[[self arrayOfSubscription] objectAtIndex:indexPath.row]person];
+     } else {
+         vc.group=[[[self arrayOfSubscription] objectAtIndex:indexPath.row] group];
+         
+     }
+     [self.navigationController pushViewController:vc animated:YES];
  }
- */
+ 
 /*
  - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  if ([segue.identifier isEqualToString:@"segueDetailPersonInfo"]) {

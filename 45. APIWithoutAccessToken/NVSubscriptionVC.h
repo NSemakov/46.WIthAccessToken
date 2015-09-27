@@ -10,8 +10,10 @@
 
 @class NVSubcription;
 @class NVUser;
+@class NVGroup;
 @interface NVSubscriptionVC : UITableViewController
 @property (strong,nonatomic) NSMutableArray* arrayOfSubscription;
 @property (strong,nonatomic) NVSubcription* subscription;
 @property (strong,nonatomic) NVUser* person;
+//@property (strong,nonatomic) NVGroup* group;
 @end

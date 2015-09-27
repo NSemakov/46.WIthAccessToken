@@ -10,7 +10,7 @@
 
 @interface NVGroup : NSObject
 @property (strong,nonatomic) NSString* name;
-@property (assign,nonatomic) NSInteger idGroup;
+@property (strong,nonatomic) NSString* idGroup;
 @property (assign,nonatomic) NSInteger isClosed;
 @property (strong,nonatomic) NSString* screen_name;
 @property (strong,nonatomic) NSString* typeOfGroup;//i.e. page etc

@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class NVGroup;
+@class NVUser;
 @interface NVSubcription : NSObject
+@property (strong,nonatomic) NVUser* person;
+@property (strong,nonatomic) NVGroup* group;
 @property (strong,nonatomic) NSString* name;
 @property (strong,nonatomic) NSURL* photo50;
 - (instancetype)initWithDictionary:(NSDictionary*) params;

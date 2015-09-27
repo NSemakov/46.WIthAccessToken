@@ -24,11 +24,11 @@
                     withOffset:(NSInteger) offset
                      onSuccess:(void(^)(NSArray* followers)) onSuccess
                      onFailure:(void(^)(NSString* error)) onFailure;
--(void) getSubscriptionsFromServer:(NSInteger) userIds Count:(NSInteger) count
+-(void) getSubscriptionsFromServer:(NSString*) userIds Count:(NSInteger) count
                         withOffset:(NSInteger) offset
                          onSuccess:(void(^)(NSArray* subscriptions)) onSuccess
                          onFailure:(void(^)(NSString* error)) onFailure;
--(void) getWallPostsOfFriendFromServer:(NSInteger) owner_id
+-(void) getWallPostsOfFriendFromServer:(NSString*) owner_id
                                  Count:(NSInteger) count
                             withOffset:(NSInteger) offset
                              onSuccess:(void(^)(NSArray* wallPosts)) onSuccess

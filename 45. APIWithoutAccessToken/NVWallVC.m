@@ -54,7 +54,14 @@ static const NSInteger numberOfWallPostsToGet=5;
 }
 
 - (void) refreshTable{
-    [[NVServerManager sharedManager] getWallPostsOfFriendFromServer:[self.person.userId integerValue] Count:numberOfWallPostsToGet withOffset:[self.arrayOfWallPosts count] onSuccess:^(NSArray *wallPosts) {
+    NSString* userOrWallId;
+    if (self.person) {
+        userOrWallId=self.person.userId;
+    } else {
+        //NSLog(@"class %@",[self.group.idGroup class]);
+        userOrWallId=[@"-" stringByAppendingString: self.group.idGroup];
+    }
+    [[NVServerManager sharedManager] getWallPostsOfFriendFromServer:userOrWallId Count:numberOfWallPostsToGet withOffset:[self.arrayOfWallPosts count] onSuccess:^(NSArray *wallPosts) {
         NSMutableArray* arrayOfIndexPaths=[NSMutableArray array];
         
         for (NSInteger i=[self.arrayOfWallPosts count]; i<[self.arrayOfWallPosts count]+[wallPosts count]; i++) {

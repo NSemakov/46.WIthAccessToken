@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         self.name=[params objectForKey:@"name"];
-        self.idGroup=[[params objectForKey:@"id"] integerValue];
+        self.idGroup=[[params objectForKey:@"id"] stringValue];
         self.isClosed=[[params objectForKey:@"isClosed"] integerValue];
         self.screen_name=[params objectForKey:@"screen_name"];
         self.typeOfGroup=[params objectForKey:@"type"];
