@@ -23,11 +23,8 @@ static const NSInteger numberOfFriendsToGet=20;
     [super viewDidLoad];
 
     self.arrayOfFriends=[[NSMutableArray alloc]init];
-    __weak NVFriendsVC *weakSelf=self;
-    [[NVServerManager sharedManager]authorizeUser:^(NVUser *user) {
-        NSLog(@"%@ %@",user.firstName,user.lastName);
-        [weakSelf refreshTable];
-    }];
+    
+    [self refreshTable];
    // [self refreshTable];
 }
 
@@ -103,8 +100,8 @@ static const NSInteger numberOfFriendsToGet=20;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueDetailPersonInfo"]) {
         NVDetailInfoVC* vc= (NVDetailInfoVC*)segue.destinationViewController;
-        vc.userIds=[[self.arrayOfFriends objectAtIndex:[(NSIndexPath*)sender row]] userId];
-        NSLog(@"userIds to send %@",[[self.arrayOfFriends objectAtIndex:[(NSIndexPath*)sender row]] userId]);
+        vc.person=[self.arrayOfFriends objectAtIndex:[(NSIndexPath*)sender row]];
+        //NSLog(@"userIds to send %@",[[self.arrayOfFriends objectAtIndex:[(NSIndexPath*)sender row]] userId]);
     }
 }
 @end

@@ -11,4 +11,5 @@
 @interface NVDetailInfoVC : UITableViewController
 @property (strong,nonatomic) NVUser* person;
 @property (strong,nonatomic) NSString* userIds;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @end

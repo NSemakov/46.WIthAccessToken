@@ -14,6 +14,7 @@
 #import "NVFollowersVC.h"
 #import "NVSubscriptionVC.h"
 #import "NVWallVC.h"
+#import "SWRevealViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 @interface NVDetailInfoVC ()
 
@@ -24,22 +25,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.barButton.target=self.revealViewController;
+    self.barButton.action=@selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+   
+    
     self.navigationItem.title=@"Detail Info";
     self.tableView.estimatedRowHeight = 2.0 ;
    
     self.tableView.rowHeight = UITableViewAutomaticDimension; // by itself this line
-    [self refreshTable];
+    [self refreshTableForUser:self.person];
+    
+    
 }
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    __weak NVDetailInfoVC *weakSelf=self;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+    [[NVServerManager sharedManager]authorizeUser:^(NVUser *user) {
+        NSLog(@"%@ %@",user.firstName,user.lastName);
+        weakSelf.person=user;
+        [weakSelf refreshTableForUser:[[NVServerManager sharedManager]currentUser]];
+    }];
+    });
     
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
 }
-- (void) refreshTable{
-    [[NVServerManager sharedManager]getDetailOfFriendFromServer:self.userIds onSuccess:^(NVUser *person) {
+- (void) refreshTableForUser:(NVUser*)user{
+    [[NVServerManager sharedManager]getDetailOfFriendFromServer:user.userId onSuccess:^(NVUser *person) {
          //NSMutableArray* arrayOfIndexPaths=[NSMutableArray array];
         self.person=person;
         [self.tableView reloadData];
@@ -112,25 +134,7 @@
                                       
                                   }];
 }
-/*
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if (indexPath.section==0) {
-        
-       NVPhotoCell* cell=[tableView dequeueReusableCellWithIdentifier:@"photoCell"];
-        [self configureBasicCell:cell atIndexPath:indexPath];
-        [cell setNeedsLayout];
-       [cell  layoutIfNeeded];
-        CGSize size=[cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        NSLog(@"%f",size.height);
-        return size.height;
 
-    } else {
-        return 44.f;
-    }
-}
-*/
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section>0) {
         return [self.person.arrayOfNames objectAtIndex:section-1];

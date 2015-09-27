@@ -15,6 +15,7 @@
 		847AD3771B90753300581426 /* NVServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3761B90753300581426 /* NVServerManager.m */; };
 		847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD3791B90A9DF00581426 /* NVPhotoCell.m */; };
 		847AD37D1B90AA3B00581426 /* NVDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD37C1B90AA3B00581426 /* NVDetailInfoVC.m */; };
+		8485E7A11BB882FA00D87976 /* NVMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8485E7A01BB882FA00D87976 /* NVMenuVC.m */; };
 		84B365581B91D2EE003E33C2 /* NVFollowersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B365571B91D2EE003E33C2 /* NVFollowersVC.m */; };
 		84B3655B1B91E5BA003E33C2 /* NVSubcription.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655A1B91E5BA003E33C2 /* NVSubcription.m */; };
 		84B3655E1B91E773003E33C2 /* NVSubscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3655D1B91E773003E33C2 /* NVSubscriptionVC.m */; };
@@ -47,6 +48,7 @@
 		84F104011BAF53A6004D7B20 /* 888-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F103F61BAF53A6004D7B20 /* 888-checkmark.png */; };
 		84F104021BAF53A6004D7B20 /* 888-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F103F71BAF53A6004D7B20 /* 888-checkmark@2x.png */; };
 		84F104031BAF53A6004D7B20 /* RBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F103FA1BAF53A6004D7B20 /* RBImagePickerController.m */; };
+		84F11BC61BB86FD100EF4249 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F11BC51BB86FD100EF4249 /* SWRevealViewController.m */; };
 		84FBCCB71BA843E600B5A618 /* NVAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCCB61BA843E600B5A618 /* NVAccessToken.m */; };
 		84FD6D771B99A01F00558FE2 /* NVTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD6D761B99A01F00558FE2 /* NVTextCell.m */; };
 		84FD6D7D1B99FAC300558FE2 /* docIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D791B99FAC300558FE2 /* docIcon.png */; };
@@ -81,6 +83,8 @@
 		847AD3791B90A9DF00581426 /* NVPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhotoCell.m; sourceTree = "<group>"; };
 		847AD37B1B90AA3B00581426 /* NVDetailInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVDetailInfoVC.h; sourceTree = "<group>"; };
 		847AD37C1B90AA3B00581426 /* NVDetailInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVDetailInfoVC.m; sourceTree = "<group>"; };
+		8485E79F1BB882FA00D87976 /* NVMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMenuVC.h; sourceTree = "<group>"; };
+		8485E7A01BB882FA00D87976 /* NVMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMenuVC.m; sourceTree = "<group>"; };
 		84B365561B91D2EE003E33C2 /* NVFollowersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFollowersVC.h; sourceTree = "<group>"; };
 		84B365571B91D2EE003E33C2 /* NVFollowersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVFollowersVC.m; sourceTree = "<group>"; };
 		84B365591B91E5B9003E33C2 /* NVSubcription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSubcription.h; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		84F103FA1BAF53A6004D7B20 /* RBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImagePickerController.m; sourceTree = "<group>"; };
 		84F103FC1BAF53A6004D7B20 /* RBImagePickerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImagePickerDataSource.h; sourceTree = "<group>"; };
 		84F103FD1BAF53A6004D7B20 /* RBImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImagePickerDelegate.h; sourceTree = "<group>"; };
+		84F11BC41BB86FD100EF4249 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		84F11BC51BB86FD100EF4249 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		84FBCCB51BA843E600B5A618 /* NVAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVAccessToken.h; sourceTree = "<group>"; };
 		84FBCCB61BA843E600B5A618 /* NVAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAccessToken.m; sourceTree = "<group>"; };
 		84FD6D751B99A01F00558FE2 /* NVTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVTextCell.h; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 				847AD3731B906E8700581426 /* NVLoginVC.m */,
 				84FBCCB51BA843E600B5A618 /* NVAccessToken.h */,
 				84FBCCB61BA843E600B5A618 /* NVAccessToken.m */,
+				8485E79F1BB882FA00D87976 /* NVMenuVC.h */,
+				8485E7A01BB882FA00D87976 /* NVMenuVC.m */,
 				847AD37B1B90AA3B00581426 /* NVDetailInfoVC.h */,
 				847AD37C1B90AA3B00581426 /* NVDetailInfoVC.m */,
 				84F103EB1BAF53A6004D7B20 /* RBImagePickerController */,
@@ -253,6 +261,7 @@
 				84EB34A01B9060F800C7E0AC /* AppDelegate.h */,
 				84EB34A11B9060F800C7E0AC /* AppDelegate.m */,
 				84FD6D781B99FAC300558FE2 /* Icons */,
+				84F11BC31BB86FD100EF4249 /* SWRevealViewController */,
 				84B365601B91E78A003E33C2 /* ViewControllers */,
 				84B3655F1B91E77C003E33C2 /* Models */,
 				847AD3751B90753300581426 /* NVServerManager.h */,
@@ -365,6 +374,15 @@
 				84F103FD1BAF53A6004D7B20 /* RBImagePickerDelegate.h */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		84F11BC31BB86FD100EF4249 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84F11BC41BB86FD100EF4249 /* SWRevealViewController.h */,
+				84F11BC51BB86FD100EF4249 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		84FD6D781B99FAC300558FE2 /* Icons */ = {
@@ -573,6 +591,7 @@
 				84FD6D841B9A0ED100558FE2 /* NVDocument.m in Sources */,
 				84EB34A51B9060F800C7E0AC /* NVFriendsVC.m in Sources */,
 				847AD3771B90753300581426 /* NVServerManager.m in Sources */,
+				84F11BC61BB86FD100EF4249 /* SWRevealViewController.m in Sources */,
 				847AD37A1B90A9DF00581426 /* NVPhotoCell.m in Sources */,
 				84E7B09F1BA23A81001E7E25 /* NVBigPhotoVC.m in Sources */,
 				847508C21B9A635F006A486B /* NVMainTableHeader.m in Sources */,
@@ -594,6 +613,7 @@
 				84EB349F1B9060F800C7E0AC /* main.m in Sources */,
 				84F047261B983AD10039FEF4 /* NVRepostCell.m in Sources */,
 				84F103FE1BAF53A6004D7B20 /* ALAsset+RBAsset.m in Sources */,
+				8485E7A11BB882FA00D87976 /* NVMenuVC.m in Sources */,
 				84EA589F1B9B407B00AF0386 /* NVLikeRepostComCell.m in Sources */,
 				847AD37D1B90AA3B00581426 /* NVDetailInfoVC.m in Sources */,
 				84E36C8F1B920F7400AC1F56 /* NVWallPost.m in Sources */,
